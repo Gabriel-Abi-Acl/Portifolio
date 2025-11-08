@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gabriel Abi-Acl - Engenheiro de Software e Desenvolvedor Web</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#inicio">Início</a>
+            <a href="#sobre">Sobre Mim</a>
+            <a href="#projetos">Projetos</a>
+            <a href="#contato">Contato</a>
+        </nav>
+        <div class="header-actions">
+            <a href="#" class="btn btn-primary">Download CV</a>
+            <button class="theme-toggle" onclick="alterarTema()">☀️</button>
+        </div>
+    </header>
+    
+    <div id="modalConfirmacao" class="modal-confirmacao">
+        <div class="modal-conteudo">
+            <span class="modal-icone">✓</span>
+            <p>Email enviado com sucesso!</p>
+        </div>
+    </div>
+    
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <h3>Olá eu sou</h3>
+            <h1>Gabriel Abi-Acl<br>Engenheiro<br>De Software</h1>
+            <p>Meu nome é Gabriel Abi-Acl Jentzsch. Estudo e trabalho com automações e desenvolvimento web, área na qual atuo há cerca de 1 ano. Nesse tempo, venho aprimorando minhas habilidades em criar soluções que otimizam processos, integram sistemas e tornam a experiência digital mais prática e eficiente. Gosto de explorar novas tecnologias e buscar formas criativas de resolver problemas por meio da programação.</p>
+        </div>
+        <div class="profile-image">
+            <img src="imgs/eu.jpg" alt="Gabriel Abi-Acl">
+        </div>
+    </section>
+    <section class="about-section" id="sobre">
+        <div class="about-container">
+            <div class="profile-image">
+                <img src="imgs/eu2.jpg" alt="Gabriel Abi-Acl">
+            </div>
+            <div class="about-content">
+                <h2>Sobre Mim</h2>
+                <p>Tenho 17 anos e já tive a oportunidade de trabalhar com diversas empresas e projetos, atuando pela Outsmart. Gosto de desafios e de aprender coisas novas, especialmente quando envolvem tecnologia e inovação. Busco sempre evoluir como profissional, explorando novas ideias e aprimorando minhas habilidades para entregar resultados cada vez melhores.</p>
+                <div class="skills">
+                    <div class="skill-item">
+                        <span class="skill-name">Engenharia de Software</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Desenvolvimento Web</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Engenharia Reversa</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 65%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Automações IA</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="projects-section" id="projetos">
+        <div class="projects-header">
+            <h2>Meus Projetos</h2>
+            <p>Lorem ipsum dolor sit amet consectetur. Mollis erat duis aliquam mauris est risus lectus. Phasellus consequat urna tellus.</p>
+        </div>
+        <div class="project-filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="software">Software</button>
+            <button class="filter-btn" data-filter="automacoes">Automações</button>
+            <button class="filter-btn" data-filter="engenharia">Engenharia</button>
+            <button class="filter-btn" data-filter="web">Desenvolvimento Web</button>
+        </div>
+        <div class="projects-grid">
+            <div class="project-card" data-category="software engenharia">
+                <div class="project-image">
+                    <img src="imgs/qrcode.jpg" alt="Software de Validação de Qr Code" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div class="project-info">
+                    <h3>Software de Validação de Qr Code - By Outsmart</h3>
+                </div>
+            </div>
+            <div class="project-card" data-category="automacoes software">
+                <div class="project-image">
+                    <img src="imgs/n8n.jpg" alt="WhatsApp Bot using n8n" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div class="project-info">
+                    <h3>WhatsApp Bot using n8n - By Outsmart</h3>
+                </div>
+            </div>
+            <div class="project-card" data-category="web software">
+                <div class="project-image">
+                    <img src="imgs/validaçao.png" alt="Site de Validação de Termos" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div class="project-info">
+                    <h3>Site de Validação de Termos</h3>
+                </div>
+            </div>
+            <div class="project-card" data-category="web">
+                <div class="project-image">
+                    <img src="imgs/ecommerce.png" alt="E-commerce de produtos web" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div class="project-info">
+                    <h3>E-commerce de produtos web</h3>
+                </div>
+            </div>
+            <div class="project-card" data-category="automacoes engenharia">
+                <div class="project-image">
+                    <img src="imgs/zoho.webp" alt="Automações e Integrações de CRM" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div class="project-info">
+                    <h3>Automações e Integrações de CRM - By Outsmart</h3>
+                </div>
+            </div>
+            <div class="project-card" data-category="engenharia software">
+                <div class="project-image">
+                    <img src="imgs/azure.png" alt="Função Serverless para Atualização de Dados" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div class="project-info">
+                    <h3>Função Serverless para Atualização de Dados - By Outsmart</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="social-carousel-section">
+        <div id="socialCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#socialCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="GitHub"></button>
+                <button type="button" data-bs-target="#socialCarousel" data-bs-slide-to="1" aria-label="LinkedIn"></button>
+            </div>
+            
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="social-slide github">
+                        <a href="https://github.com/Gabriel-Abi-Acl?tab=repositories" target="_blank">
+                            <h2>GITHUB</h2>
+                            <i class="bi bi-github" style="font-size: 3rem;"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="social-slide linkedin">
+                        <a href="https://www.linkedin.com/in/gabriel-abi-acl-260966366/" target="_blank">
+                            <h2>LINKEDIN</h2>
+                            <i class="bi bi-linkedin" style="font-size: 3rem;"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="carousel-control-prev" type="button" data-bs-target="#socialCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#socialCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </section>
+    <section class="contact-section" id="contato">
+        <h2>Quer trabalhar comigo?</h2>
+        <p>Lorem ipsum dolor sit amet consectetur. Tristique amet sed massa nibh lectus netus in. Aliquet donec morbi convallis pretium.</p>
+        <form class="contact-form" id="formContato" onsubmit="enviarEmail(event)">
+            <input type="email" placeholder="E-mail" class="form-control" id="emailInput" required>
+            <button type="submit" class="btn btn-primary">Entre em contato</button>
+        </form>
+    </section>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-nav">
+                <a href="#inicio">Inicio</a>
+                <a href="#sobre">Sobre Mim</a>
+                <a href="#projetos">Projetos</a>
+                <a href="#contato">Contato</a>
+            </div>
+            <div class="social-links">
+                <a href="#"><i class="bi bi-facebook"></i></a>
+                <a href="#"><i class="bi bi-twitter"></i></a>
+                <a href="#"><i class="bi bi-instagram"></i></a>
+                <a href="#"><i class="bi bi-linkedin"></i></a>
+            </div>
+            <p class="copyright">© 2024 Gabriel Abi-Acl. Todos os direitos desse site estão reservados.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
