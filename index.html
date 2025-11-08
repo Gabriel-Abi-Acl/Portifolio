@@ -79,7 +79,6 @@
     <section class="projects-section" id="projetos">
         <div class="projects-header">
             <h2>Meus Projetos</h2>
-            <p>Lorem ipsum dolor sit amet consectetur. Mollis erat duis aliquam mauris est risus lectus. Phasellus consequat urna tellus.</p>
         </div>
         <div class="project-filters">
             <button class="filter-btn active" data-filter="all">All</button>
@@ -177,9 +176,11 @@
     </section>
     <section class="contact-section" id="contato">
         <h2>Quer trabalhar comigo?</h2>
-        <p>Lorem ipsum dolor sit amet consectetur. Tristique amet sed massa nibh lectus netus in. Aliquet donec morbi convallis pretium.</p>
         <form class="contact-form" id="formContato" onsubmit="enviarEmail(event)">
+            <input type="text" placeholder="Nome" class="form-control" id="nomeInput" required>
+            <input type="tel" placeholder="Telefone" class="form-control" id="telefoneInput" required>
             <input type="email" placeholder="E-mail" class="form-control" id="emailInput" required>
+            <textarea placeholder="Mensagem" class="form-control" id="mensagemInput" rows="5" required></textarea>
             <button type="submit" class="btn btn-primary">Entre em contato</button>
         </form>
     </section>
