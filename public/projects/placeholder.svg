@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" role="img" aria-labelledby="title desc">
+  <title id="title">Placeholder</title>
+  <desc id="desc">Gradient stand-in for a project screenshot.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#241638" />
+      <stop offset="0.48" stop-color="#141228" />
+      <stop offset="1" stop-color="#0c2430" />
+    </linearGradient>
+    <radialGradient id="teal" cx="0.15" cy="0.1" r="0.75">
+      <stop offset="0" stop-color="#3ee0c5" stop-opacity="0.55" />
+      <stop offset="1" stop-color="#3ee0c5" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="violet" cx="0.9" cy="0.95" r="0.7">
+      <stop offset="0" stop-color="#9b7dff" stop-opacity="0.5" />
+      <stop offset="1" stop-color="#9b7dff" stop-opacity="0" />
+    </radialGradient>
+    <pattern id="dots" width="28" height="28" patternUnits="userSpaceOnUse">
+      <circle cx="1.4" cy="1.4" r="1.15" fill="#ffffff" fill-opacity="0.16" />
+    </pattern>
+  </defs>
+  <rect width="1200" height="750" fill="url(#bg)" />
+  <rect width="1200" height="750" fill="url(#teal)" />
+  <rect width="1200" height="750" fill="url(#violet)" />
+  <rect width="1200" height="750" fill="url(#dots)" />
+  <rect x="78" y="64" width="1044" height="622" rx="36" fill="none" stroke="#ffffff" stroke-opacity="0.2" />
+  <circle cx="124" cy="112" r="8" fill="#3ee0c5" fill-opacity="0.9" />
+  <circle cx="152" cy="112" r="8" fill="#ffffff" fill-opacity="0.38" />
+  <circle cx="180" cy="112" r="8" fill="#ffffff" fill-opacity="0.2" />
+  <rect x="150" y="250" width="420" height="28" rx="14" fill="#ffffff" fill-opacity="0.14" />
+  <rect x="150" y="306" width="620" height="16" rx="8" fill="#ffffff" fill-opacity="0.1" />
+  <rect x="150" y="340" width="520" height="16" rx="8" fill="#ffffff" fill-opacity="0.08" />
+  <text
+    x="600"
+    y="470"
+    text-anchor="middle"
+    fill="#f5f3fb"
+    font-family="ui-sans-serif, system-ui, sans-serif"
+    font-size="48"
+    letter-spacing="10"
+  >
+    PLACEHOLDER
+  </text>
+  <text
+    x="600"
+    y="518"
+    text-anchor="middle"
+    fill="#b7b3c9"
+    font-family="ui-sans-serif, system-ui, sans-serif"
+    font-size="22"
+    letter-spacing="4"
+  >
+    screenshot
+  </text>
+</svg>

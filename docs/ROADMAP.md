@@ -50,9 +50,13 @@ Não inclui chat, motion, 3D nem cards reais.
 
 ## PR5 — Projetos
 
-- Card com screenshot real, descrição curta e tags
-- Sem screenshot → esqueleto, nunca imagem ou texto inventados
-- Fonte: `content/projects.json`
+- `#projects` num `GlassCard` de largura inteira
+- Cada item: screenshot à esquerda, descrição curta e tags em pílula à direita (no mobile, imagem e depois texto)
+- Dados só de `content/projects.json`
+- Este PR traz dois placeholders de layout, marcados na tela. Não são projetos do Gabriel
+- Sem arquivo de screenshot em `public/` → esqueleto
+- Links só se existirem no JSON
+- Entrada leve com Framer Motion; estática com `prefers-reduced-motion: reduce`
 
 ## PR6 — Sobre + galáxia 3D
 

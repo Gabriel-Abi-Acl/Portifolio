@@ -6,7 +6,7 @@
   "shell": {
     "kicker": "Visual shell",
     "title": "Portfolio",
-    "intro": "Floating panels over a static background. Skills, projects, and later sections are still empty. No biographical facts have been filled in.",
+    "intro": "Floating panels over a static background. Project cards are layout placeholders. No biographical facts have been filled in.",
     "brand": "Portfolio",
     "navLabel": "Sections",
     "localeLabel": "Language",
@@ -43,6 +43,24 @@
     "placeholderNote": "Placeholders — replace with real skills.",
     "empty": "No skills have been added yet.",
     "trackLabel": "Skills along a curved path"
+  },
+  "projects": {
+    "kicker": "Showcase",
+    "title": "Projects",
+    "intro": "Each card pairs a screenshot with a short description and the languages or tools used.",
+    "placeholderNote": "Layout placeholders. These cards stay until Gabriel adds real screenshots and copy.",
+    "placeholderBadge": "Placeholder",
+    "empty": "No projects have been added yet.",
+    "screenshotMissing": "Screenshot not added yet",
+    "tagsLabel": "Tools",
+    "linksLabel": "Links",
+    "newTab": "Opens in a new tab",
+    "links": {
+      "live": "Live",
+      "repo": "Repository",
+      "case": "Case study",
+      "other": "Link"
+    }
   },
   "chat": {
     "title": "Chat",

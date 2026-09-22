@@ -1,1 +1,29 @@
-[]
+[
+  {
+    "_comment": "PLACEHOLDERS — replace with real projects. Layout demo only. Not Gabriel's apps, employers, or metrics. No live or repo links until he provides them."
+  },
+  {
+    "id": "placeholder-1",
+    "title": "Projeto exemplo",
+    "summary": "Substitua por um caso real: screenshot, descrição curta e tags. Replace with a real case. Not a real project.",
+    "screenshot": {
+      "src": "/projects/placeholder.svg",
+      "alt": "Placeholder de screenshot. Espaço vazio até entrar uma imagem real."
+    },
+    "techTags": ["Exemplo A", "Exemplo B", "Exemplo C"],
+    "order": 1,
+    "placeholder": true
+  },
+  {
+    "id": "placeholder-2",
+    "title": "Projeto exemplo 2",
+    "summary": "Segundo espaço só para o layout da lista. Second layout slot only. No app, employer, or metric.",
+    "screenshot": {
+      "src": "/projects/placeholder.svg",
+      "alt": "Placeholder de screenshot. Espaço vazio até entrar uma imagem real."
+    },
+    "techTags": ["Exemplo", "Layout"],
+    "order": 2,
+    "placeholder": true
+  }
+]

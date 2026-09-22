@@ -46,6 +46,10 @@ Lenis suaviza a roda e os cliques nas âncoras. Com `prefers-reduced-motion: red
 
 O `#skills` fica num `GlassCard` de largura inteira. Os ícones (Simple Icons) andam num caminho SVG fechado: oval achatado com uma leve curva em S, de ponta a ponta da seção. Framer Motion anima `offsetPath` / `offsetDistance`. Escala e opacidade seguem a altura no caminho (mais perto embaixo). Com `prefers-reduced-motion: reduce`, o caminho some e os ícones ficam numa fileira que quebra linha. Os itens atuais de `content/skills.json` são placeholders de layout.
 
+## PR5 — projetos
+
+O `#projects` fica num `GlassCard` de largura inteira. Cada item é uma linha: screenshot à esquerda e, à direita, descrição curta mais tags em pílula. No mobile a imagem fica em cima e o texto embaixo. Links (`live`, `repo`, `case`, `other`) só aparecem quando o JSON traz um `href` http(s) ou um caminho local. A entrada usa Framer Motion (opacidade e um deslocamento curto) e só começa depois de confirmar que o movimento é permitido. Com `prefers-reduced-motion: reduce`, a lista fica estática. Se o arquivo em `public/` não existir, o espaço da imagem vira um esqueleto. Os itens atuais de `content/projects.json` são placeholders de layout.
+
 ## O que não entra nesta casca
 
-Bio, projetos, jornada, screenshots ou avatar. O chat entrou no PR3. O arco de habilidades entrou no PR4, com placeholders de layout — não com fatos.
+Bio, jornada, screenshots reais ou avatar. O chat entrou no PR3. O arco de habilidades entrou no PR4, com placeholders de layout — não com fatos. Os cards de projeto entraram no PR5, também com placeholders — não com apps, empregadores ou métricas.

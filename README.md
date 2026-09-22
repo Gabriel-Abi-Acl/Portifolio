@@ -7,10 +7,11 @@ Site pessoal de Gabriel Abi Acl, construído em PRs modulares.
 
 - **PR3** — hero com chat (Gemini no servidor e notas placeholder).
 - **PR4** — habilidades: ícones de exemplo num arco (caminho fechado, não um globo).
+- **PR5** — projetos: screenshot, descrição e tags em cards de vidro (placeholders de layout).
 
-Animações de projetos, sobre, jornada e textos reais ficam para os PRs seguintes.
+Sobre, jornada e textos reais ficam para os PRs seguintes.
 
-Nenhum fato biográfico, empregador, projeto ou habilidade real foi inventado. `content/skills.json` tem só placeholders de layout, marcados na tela. `content/person.json`, projects e journey continuam vazios. `content/knowledge/chunks.json` tem só notas placeholder sobre o site em construção.
+Nenhum fato biográfico, empregador, projeto ou habilidade real foi inventado. `content/skills.json` e `content/projects.json` têm só placeholders de layout, marcados na tela. `content/person.json` e journey continuam vazios. `content/knowledge/chunks.json` tem só notas placeholder sobre o site em construção.
 
 ## Requisitos
 
@@ -50,7 +51,7 @@ O limite é 10 mensagens a cada 10 minutos por IP. Com `UPSTASH_REDIS_REST_URL` 
 - `next-intl` com `pt-BR` (padrão) e `en`
 - Alias `@/` → `src/`
 
-A casca visual (PR2) acrescenta Lenis para scroll suave. Ele não inicia quando `prefers-reduced-motion: reduce` está ativo. O chat (PR3) usa `ai` e `@ai-sdk/google` só no servidor. O arco de habilidades (PR4) usa Framer Motion (`offsetPath` / `offsetDistance`). GSAP e React Three Fiber ainda não entram.
+A casca visual (PR2) acrescenta Lenis para scroll suave. Ele não inicia quando `prefers-reduced-motion: reduce` está ativo. O chat (PR3) usa `ai` e `@ai-sdk/google` só no servidor. O arco de habilidades (PR4) usa Framer Motion (`offsetPath` / `offsetDistance`). Os cards de projeto (PR5) usam Framer Motion só numa entrada curta, desligada com `prefers-reduced-motion`. GSAP e React Three Fiber ainda não entram.
 
 ## Idiomas
 
@@ -64,7 +65,7 @@ Schemas em `src/content/types.ts`. Dados em JSON:
 | ------------------------------- | ------------------------------------- |
 | `content/person.json`           | `Person` (campos vazios)              |
 | `content/skills.json`           | `Skill[]` (placeholders de layout)    |
-| `content/projects.json`         | `Project[]`                           |
+| `content/projects.json`         | `Project[]` (placeholders de layout)  |
 | `content/journey.json`          | `JourneyMilestone[]`                  |
 | `content/knowledge/chunks.json` | `ChatKnowledgeChunk[]` (placeholders) |
 
@@ -73,10 +74,11 @@ Os loaders em `src/content/load.ts` leem esses arquivos no servidor. JSON invál
 ### Regras
 
 - Não inventar bio, cargo, cidade, empregadores, habilidades, descrições de projeto, tags ou datas.
-- Não preencher os stubs com texto de exemplo que pareça fato.
+- Não preencher os stubs com texto de exemplo que pareça fato. A exceção é o placeholder de layout em skills e projects: o texto diz que é exemplo e a seção mostra um aviso.
+- Screenshots de projeto seguem a mesma regra do avatar: só um arquivo local que existe em `public/`. Sem arquivo, a seção mostra um esqueleto. `public/projects/placeholder.svg` é um gradiente de layout, não um print real.
 - Só gravar o que Gabriel fornecer. Campo desconhecido fica vazio ou o item não entra na lista.
 - `localeDefault: "pt-BR"` é o idioma padrão do site, não uma afirmação biográfica.
-- Screenshots e avatar só entram quando os arquivos reais existirem em `public/`. O hero usa `avatar.src` só se for um caminho local que existe (por exemplo `/avatar.jpg`). URL externa é ignorada.
+- O avatar só entra quando o arquivo real existir em `public/`. O hero usa `avatar.src` só se for um caminho local que existe (por exemplo `/avatar.jpg`). URL externa é ignorada.
 - Segredos ficam em `.env.local` (gitignored). Nunca usar `NEXT_PUBLIC_` em chave de API.
 
 ## Roteiro dos PRs
@@ -87,7 +89,7 @@ O detalhe está em [`docs/ROADMAP.md`](docs/ROADMAP.md).
 2. **PR2** — Casca visual: fundo estático, cards de vidro, navegação.
 3. **PR3** — Hero + chat (Gemini + notas placeholder). Feito.
 4. **PR4** — Animação das habilidades em arco. Feito.
-5. **PR5** — Projetos (screenshot, descrição, tags).
+5. **PR5** — Projetos (screenshot, descrição, tags). Feito, com placeholders de layout.
 6. **PR6** — Sobre + modal de galáxia 3D.
 7. **PR7** — Linha do tempo da jornada.
 8. **PR8** — Acabamento: i18n completo, SEO, `prefers-reduced-motion`.
@@ -96,4 +98,4 @@ A âncora `#contact` aponta para o PR8 porque não há um PR só de contato.
 
 ## Fora deste PR
 
-GSAP, React Three Fiber, galáxia, cards de projeto com conteúdo, jornada, livro de visitas e qualquer fato biográfico.
+GSAP, React Three Fiber, galáxia, jornada, textos reais de projeto e qualquer fato biográfico.

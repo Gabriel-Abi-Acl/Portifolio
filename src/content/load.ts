@@ -280,6 +280,10 @@ function parseProject(value: unknown): Project | undefined {
     project.featured = value.featured;
   }
 
+  if (value.placeholder === true) {
+    project.placeholder = true;
+  }
+
   return project;
 }
 
