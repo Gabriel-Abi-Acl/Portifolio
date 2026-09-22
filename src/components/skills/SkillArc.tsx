@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { MotionConfig, motion } from 'framer-motion';
 import { useLayoutEffect, useRef, useState } from 'react';
 import { skillsArcPath, stageHeight } from './arc-path';
 import { SkillMark } from './SkillMark';
@@ -155,11 +155,24 @@ export function SkillArc({ skills, trackLabel }: SkillArcProps) {
     measure();
     const observer = new ResizeObserver(measure);
     observer.observe(node);
-    return () => observer.disconnect();
+    // The track is display:none while reduced motion is on, so its width is 0
+    // until that query flips. Measure again once it is shown.
+    const media = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const onMotion = () => {
+      measure();
+      requestAnimationFrame(measure);
+    };
+    media.addEventListener('change', onMotion);
+    return () => {
+      observer.disconnect();
+      media.removeEventListener('change', onMotion);
+    };
   }, []);
 
   return (
-    <>
+    // CSS hides this track under reduced motion. Framer's own flag is sticky
+    // for the session, so leaving it on would freeze the path after a reload.
+    <MotionConfig reducedMotion="never">
       <div
         ref={stageRef}
         className="relative mt-8 w-full motion-reduce:hidden"
@@ -225,6 +238,6 @@ export function SkillArc({ skills, trackLabel }: SkillArcProps) {
           </li>
         ))}
       </ul>
-    </>
+    </MotionConfig>
   );
 }
