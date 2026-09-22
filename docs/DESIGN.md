@@ -42,6 +42,10 @@ Lenis suaviza a roda e os cliques nas âncoras. Com `prefers-reduced-motion: red
 - `scroll-behavior` volta para `auto`
 - o vidro perde o blur e usa `--card-solid`
 
+## PR4 — arco de habilidades
+
+O `#skills` fica num `GlassCard` de largura inteira. Os ícones (Simple Icons) andam num caminho SVG fechado: oval achatado com uma leve curva em S, de ponta a ponta da seção. Framer Motion anima `offsetPath` / `offsetDistance`. Escala e opacidade seguem a altura no caminho (mais perto embaixo). Com `prefers-reduced-motion: reduce`, o caminho some e os ícones ficam numa fileira que quebra linha. Os itens atuais de `content/skills.json` são placeholders de layout.
+
 ## O que não entra nesta casca
 
-Bio, habilidades, projetos, jornada, chat, screenshots ou avatar. Campos vazios em `content/` continuam vazios.
+Bio, projetos, jornada, screenshots ou avatar. O chat entrou no PR3. O arco de habilidades entrou no PR4, com placeholders de layout — não com fatos.

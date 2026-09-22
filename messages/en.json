@@ -36,6 +36,14 @@
     "nameMissing": "Name not added yet.",
     "avatarEmpty": "Photo not added yet"
   },
+  "skills": {
+    "kicker": "Arc",
+    "title": "Skills",
+    "blurb": "Icons follow a curved path across this section.",
+    "placeholderNote": "Placeholders — replace with real skills.",
+    "empty": "No skills have been added yet.",
+    "trackLabel": "Skills along a curved path"
+  },
   "chat": {
     "title": "Chat",
     "label": "Message",

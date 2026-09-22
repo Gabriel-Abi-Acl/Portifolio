@@ -36,6 +36,14 @@
     "nameMissing": "Nome ainda não adicionado.",
     "avatarEmpty": "Foto ainda não adicionada"
   },
+  "skills": {
+    "kicker": "Arco",
+    "title": "Habilidades",
+    "blurb": "Os ícones seguem um caminho curvo por esta seção.",
+    "placeholderNote": "Placeholders — substitua pelas habilidades reais.",
+    "empty": "Nenhuma habilidade foi adicionada ainda.",
+    "trackLabel": "Habilidades em um caminho curvo"
+  },
   "chat": {
     "title": "Chat",
     "label": "Mensagem",

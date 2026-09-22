@@ -6,10 +6,11 @@ Site pessoal de Gabriel Abi Acl, construído em PRs modulares.
 - **PR2** — casca visual: fundo estático, cards de vidro e navegação fixa. Tokens em [`docs/DESIGN.md`](docs/DESIGN.md).
 
 - **PR3** — hero com chat (Gemini no servidor e notas placeholder).
+- **PR4** — habilidades: ícones de exemplo num arco (caminho fechado, não um globo).
 
-Animações de conteúdo e textos reais ficam para os PRs seguintes.
+Animações de projetos, sobre, jornada e textos reais ficam para os PRs seguintes.
 
-Nenhum fato biográfico, empregador, habilidade ou projeto foi inventado. `content/person.json`, skills, projects e journey continuam vazios. `content/knowledge/chunks.json` tem só notas placeholder sobre o site em construção.
+Nenhum fato biográfico, empregador, projeto ou habilidade real foi inventado. `content/skills.json` tem só placeholders de layout, marcados na tela. `content/person.json`, projects e journey continuam vazios. `content/knowledge/chunks.json` tem só notas placeholder sobre o site em construção.
 
 ## Requisitos
 
@@ -49,7 +50,7 @@ O limite é 10 mensagens a cada 10 minutos por IP. Com `UPSTASH_REDIS_REST_URL` 
 - `next-intl` com `pt-BR` (padrão) e `en`
 - Alias `@/` → `src/`
 
-A casca visual (PR2) acrescenta Lenis para scroll suave. Ele não inicia quando `prefers-reduced-motion: reduce` está ativo. O chat (PR3) usa `ai` e `@ai-sdk/google` só no servidor. Framer Motion, GSAP e React Three Fiber ainda não entram.
+A casca visual (PR2) acrescenta Lenis para scroll suave. Ele não inicia quando `prefers-reduced-motion: reduce` está ativo. O chat (PR3) usa `ai` e `@ai-sdk/google` só no servidor. O arco de habilidades (PR4) usa Framer Motion (`offsetPath` / `offsetDistance`). GSAP e React Three Fiber ainda não entram.
 
 ## Idiomas
 
@@ -62,7 +63,7 @@ Schemas em `src/content/types.ts`. Dados em JSON:
 | Arquivo                         | Tipo                                  |
 | ------------------------------- | ------------------------------------- |
 | `content/person.json`           | `Person` (campos vazios)              |
-| `content/skills.json`           | `Skill[]`                             |
+| `content/skills.json`           | `Skill[]` (placeholders de layout)    |
 | `content/projects.json`         | `Project[]`                           |
 | `content/journey.json`          | `JourneyMilestone[]`                  |
 | `content/knowledge/chunks.json` | `ChatKnowledgeChunk[]` (placeholders) |
@@ -85,7 +86,7 @@ O detalhe está em [`docs/ROADMAP.md`](docs/ROADMAP.md).
 1. **PR1** — Fundação (este): Next.js 15, Tailwind v4, i18n mínimo, schemas e stubs vazios.
 2. **PR2** — Casca visual: fundo estático, cards de vidro, navegação.
 3. **PR3** — Hero + chat (Gemini + notas placeholder). Feito.
-4. **PR4** — Animação das habilidades em arco.
+4. **PR4** — Animação das habilidades em arco. Feito.
 5. **PR5** — Projetos (screenshot, descrição, tags).
 6. **PR6** — Sobre + modal de galáxia 3D.
 7. **PR7** — Linha do tempo da jornada.
@@ -95,4 +96,4 @@ A âncora `#contact` aponta para o PR8 porque não há um PR só de contato.
 
 ## Fora deste PR
 
-Framer Motion, GSAP, React Three Fiber, arco de skills, galáxia, cards de projeto com conteúdo, jornada, livro de visitas e qualquer fato biográfico.
+GSAP, React Three Fiber, galáxia, cards de projeto com conteúdo, jornada, livro de visitas e qualquer fato biográfico.

@@ -2,6 +2,7 @@ import { hasLocale } from 'next-intl';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { HeroSection } from '@/components/hero/HeroSection';
+import { SkillsSection } from '@/components/skills/SkillsSection';
 import { SectionPlaceholder } from '@/components/shell/SectionPlaceholder';
 import {
   loadJourney,
@@ -43,10 +44,16 @@ export default async function HomePage({ params }: HomePageProps) {
       id="content"
       className="mx-auto grid w-full max-w-5xl grid-cols-1 gap-5 px-4 pt-28 pb-24 sm:px-6 sm:pt-32 lg:grid-cols-2 lg:gap-6"
     >
-      {HOME_SECTIONS.map((section, index) =>
-        section.id === 'hero' ? (
-          <HeroSection key={section.id} person={person} />
-        ) : (
+      {HOME_SECTIONS.map((section, index) => {
+        if (section.id === 'hero') {
+          return <HeroSection key={section.id} person={person} />;
+        }
+
+        if (section.id === 'skills') {
+          return <SkillsSection key={section.id} skills={skills} />;
+        }
+
+        return (
           <SectionPlaceholder
             key={section.id}
             id={section.id}
@@ -55,8 +62,8 @@ export default async function HomePage({ params }: HomePageProps) {
             note={t('coming', { pr: section.pr })}
             className={section.id === 'contact' ? 'lg:col-span-2' : undefined}
           />
-        ),
-      )}
+        );
+      })}
 
       <p className="px-2 text-center text-xs leading-5 text-muted lg:col-span-2">
         {t('contentStatus', {

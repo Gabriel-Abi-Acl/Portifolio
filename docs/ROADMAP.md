@@ -42,10 +42,11 @@ Não inclui chat, motion, 3D nem cards reais.
 
 ## PR4 — Habilidades em arco
 
-- Animação de ícones ao longo de um caminho fechado (arco / figura), não um globo
+- Ícones percorrem um caminho fechado (arco oval com uma volta em S), não um globo
 - Dados só de `content/skills.json`
-- Lista vazia → estado vazio, sem ícones de exemplo
-- `prefers-reduced-motion` pode ser o fallback estático; o acabamento fica no PR8
+- Este PR traz um conjunto pequeno de placeholders rotulados (stack comum, só para o layout). Não são habilidades do Gabriel nem níveis
+- Lista vazia → estado vazio
+- `prefers-reduced-motion: reduce` mostra uma fileira estática, sem animação do caminho
 
 ## PR5 — Projetos
 

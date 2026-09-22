@@ -229,6 +229,8 @@ function parseSkill(value: unknown): Skill | undefined {
   const href = readString(value, 'href');
   if (href !== undefined) skill.href = href;
 
+  if (value.placeholder === true) skill.placeholder = true;
+
   return skill;
 }
 

@@ -1,1 +1,69 @@
-[]
+[
+  {
+    "_comment": "PLACEHOLDERS — replace with real skills. Common stack examples for the layout demo only. Not a claim about Gabriel, and not a proficiency level."
+  },
+  {
+    "id": "placeholder-react",
+    "name": "React",
+    "category": "framework",
+    "icon": { "kind": "simple-icon", "slug": "react" },
+    "order": 1,
+    "placeholder": true
+  },
+  {
+    "id": "placeholder-typescript",
+    "name": "TypeScript",
+    "category": "language",
+    "icon": { "kind": "simple-icon", "slug": "typescript" },
+    "order": 2,
+    "placeholder": true
+  },
+  {
+    "id": "placeholder-nextjs",
+    "name": "Next.js",
+    "category": "framework",
+    "icon": { "kind": "simple-icon", "slug": "nextdotjs" },
+    "order": 3,
+    "placeholder": true
+  },
+  {
+    "id": "placeholder-nodejs",
+    "name": "Node.js",
+    "category": "tool",
+    "icon": { "kind": "simple-icon", "slug": "nodedotjs" },
+    "order": 4,
+    "placeholder": true
+  },
+  {
+    "id": "placeholder-python",
+    "name": "Python",
+    "category": "language",
+    "icon": { "kind": "simple-icon", "slug": "python" },
+    "order": 5,
+    "placeholder": true
+  },
+  {
+    "id": "placeholder-docker",
+    "name": "Docker",
+    "category": "tool",
+    "icon": { "kind": "simple-icon", "slug": "docker" },
+    "order": 6,
+    "placeholder": true
+  },
+  {
+    "id": "placeholder-git",
+    "name": "Git",
+    "category": "tool",
+    "icon": { "kind": "simple-icon", "slug": "git" },
+    "order": 7,
+    "placeholder": true
+  },
+  {
+    "id": "placeholder-figma",
+    "name": "Figma",
+    "category": "app",
+    "icon": { "kind": "simple-icon", "slug": "figma" },
+    "order": 8,
+    "placeholder": true
+  }
+]

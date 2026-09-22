@@ -32,6 +32,11 @@ export type Skill = {
   level?: 1 | 2 | 3 | 4 | 5;
   href?: string;
   order: number;
+  /**
+   * Layout example only. The skills section shows a replacement note
+   * while any item is marked this way. Not a proficiency claim.
+   */
+  placeholder?: boolean;
 };
 
 export type Project = {
