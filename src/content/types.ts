@@ -1,0 +1,73 @@
+export type LocaleCode = 'pt-BR' | 'en';
+
+export type Person = {
+  id: string;
+  displayName: string;
+  shortTitle: string;
+  localeDefault: LocaleCode;
+  avatar: {
+    src: string;
+    alt: string;
+  };
+  location?: {
+    label: string;
+    timezone: string;
+  };
+  socials: Array<{
+    id: string;
+    label: string;
+    href: string;
+  }>;
+  contactEmail?: string;
+};
+
+export type Skill = {
+  id: string;
+  name: string;
+  category: 'language' | 'framework' | 'tool' | 'app' | 'other';
+  icon: {
+    kind: 'simple-icon' | 'lucide' | 'custom-svg';
+    slug: string;
+  };
+  level?: 1 | 2 | 3 | 4 | 5;
+  href?: string;
+  order: number;
+};
+
+export type Project = {
+  id: string;
+  title: string;
+  summary: string;
+  screenshot: {
+    src: string;
+    alt: string;
+  };
+  techTags: string[];
+  links?: Array<{
+    label: 'live' | 'repo' | 'case' | 'other';
+    href: string;
+  }>;
+  featured?: boolean;
+  order: number;
+};
+
+export type JourneyMilestone = {
+  id: string;
+  dateLabel: string;
+  title: string;
+  description: string;
+  kind: 'education' | 'work' | 'project' | 'award' | 'other';
+  icon?: string;
+  order: number;
+};
+
+export type ChatKnowledgeChunk = {
+  id: string;
+  topic:
+    'about' | 'skills' | 'projects' | 'journey' | 'contact' | 'faq' | 'other';
+  title: string;
+  body: string;
+  priority: number;
+  tags: string[];
+  updatedAt: string;
+};

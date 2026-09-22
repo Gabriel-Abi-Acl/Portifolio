@@ -1,0 +1,6 @@
+# pnpm 10 ignores dependency install scripts unless they are allowed here.
+# Next.js and ESLint need these packages to finish installing.
+allowBuilds:
+  '@parcel/watcher': true
+  '@swc/core': true
+  unrs-resolver: true
