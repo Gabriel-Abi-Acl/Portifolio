@@ -1,0 +1,26 @@
+{
+  "meta": {
+    "title": "Portfolio",
+    "description": "Site foundation. Sections have no content yet."
+  },
+  "shell": {
+    "kicker": "PR1 · foundation",
+    "title": "Portfolio",
+    "intro": "Application skeleton. Visual design, chat, and real sections land in later PRs. No biographical facts have been filled in.",
+    "navLabel": "Sections",
+    "coming": "Coming in PR {pr}.",
+    "contentStatus": "Loaded stubs: {socials} links, {skills} skills, {projects} projects, {journey} milestones, {chunks} knowledge chunks."
+  },
+  "sections": {
+    "hero": "Hero",
+    "about": "About",
+    "skills": "Skills",
+    "projects": "Projects",
+    "journey": "Journey",
+    "contact": "Contact"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "body": "That address does not exist on this site."
+  }
+}

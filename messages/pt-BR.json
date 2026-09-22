@@ -1,0 +1,26 @@
+{
+  "meta": {
+    "title": "Portfólio",
+    "description": "Fundação do site. As seções ainda não têm conteúdo."
+  },
+  "shell": {
+    "kicker": "PR1 · fundação",
+    "title": "Portfólio",
+    "intro": "Esqueleto da aplicação. Visual, chat e seções reais entram nos PRs seguintes. Nenhum fato biográfico foi preenchido.",
+    "navLabel": "Seções",
+    "coming": "Chega no PR {pr}.",
+    "contentStatus": "Stubs carregados: {socials} links, {skills} habilidades, {projects} projetos, {journey} marcos, {chunks} trechos de conhecimento."
+  },
+  "sections": {
+    "hero": "Hero",
+    "about": "Sobre",
+    "skills": "Habilidades",
+    "projects": "Projetos",
+    "journey": "Jornada",
+    "contact": "Contato"
+  },
+  "notFound": {
+    "title": "Página não encontrada",
+    "body": "Esse endereço não existe neste site."
+  }
+}
