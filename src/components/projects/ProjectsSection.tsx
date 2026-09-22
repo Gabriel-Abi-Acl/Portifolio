@@ -3,7 +3,7 @@ import { GlassCard } from '@/components/shell/GlassCard';
 import type { Project } from '@/content/types';
 import { localPublicSrc } from '@/lib/public-asset';
 import { HOME_SECTIONS } from '@/lib/sections';
-import { presentProjectHref } from './href';
+import { presentHref } from '@/lib/links';
 import type { ProjectCardModel } from './model';
 import { ProjectList } from './ProjectList';
 
@@ -13,7 +13,7 @@ type ProjectsSectionProps = {
 
 function toCard(project: Project): ProjectCardModel {
   const links = (project.links ?? []).flatMap((link) => {
-    const safe = presentProjectHref(link.href);
+    const safe = presentHref(link.href);
     if (!safe) return [];
     return [{ label: link.label, href: safe.href, external: safe.external }];
   });

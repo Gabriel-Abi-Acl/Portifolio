@@ -123,5 +123,21 @@
         "prompt": "How can I get in touch?"
       }
     }
+  },
+  "contact": {
+    "kicker": "Contact",
+    "title": "Contact",
+    "intro": "Email and links come from content/person.json. Anything still empty stays a placeholder.",
+    "emailLabel": "Email",
+    "socialsLabel": "Links",
+    "emailPlaceholder": "Email — fill contactEmail in content/person.json",
+    "socialsPlaceholder": "Links — fill socials in content/person.json",
+    "placeholderBadge": "Placeholder",
+    "emailCta": "Send an email",
+    "newTab": "Opens in a new tab"
+  },
+  "footer": {
+    "namePlaceholder": "Name — fill in content/person.json",
+    "localeNote": "This page is in {locale}. The site default is pt-BR, with no URL prefix. English is at /en."
   }
 }

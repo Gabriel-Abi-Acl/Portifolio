@@ -77,11 +77,14 @@ Não inclui chat, motion, 3D nem cards reais.
 
 ## PR8 — Acabamento
 
-- Completar mensagens `pt-BR` / `en` de tudo que ficou hardcoded
-- Rate limit do chat já existe no PR3; aqui só endurecer se ainda faltar (várias instâncias, SEO)
-- SEO: metadata, URL canônica (`NEXT_PUBLIC_SITE_URL`), alternates de idioma
-- `prefers-reduced-motion` em arco, galáxia e qualquer motion introduzido antes
-- Seção `#contact` com os links reais de `person.socials` / `contactEmail` — só o que estiver preenchido
+- `#contact` num `GlassCard`: e-mail e links de `person.json`. Vazio ou inválido → placeholder. E-mail válido → link `mailto:`
+- SEO: título e descrição a partir dos stubs (senão o texto genérico de `messages/`), Open Graph com título resolvido, canonical e alternates. `sitemap.ts` e `robots.ts`. Sem `NEXT_PUBLIC_SITE_URL`, o robots pede para não indexar
+- Rate limit do chat: vale também para pedido inválido, corpo limitado a 100 KB, `Retry-After` no 429, Upstash só com URL https e as duas chaves
+- Skip link visível no foco e foco levado ao `main`. Anel de foco não fica cortado pelo vidro. `prefers-reduced-motion` no Lenis, no arco, nos cards, na jornada e na galáxia (canvas parado)
+- Rodapé com o ano, o nome de `person.json` (ou placeholder) e uma nota do idioma
+- README em português com execução, env e os JSON para preencher
+
+O esqueleto fecha aqui. Conteúdo real não faz parte deste PR.
 
 ## Mapa das âncoras
 

@@ -1,5 +1,5 @@
 /** http(s) or a same-site path. Drops anything else, including protocol-relative URLs. */
-export function presentProjectHref(
+export function presentHref(
   href: string,
 ): { href: string; external: boolean } | null {
   const trimmed = href.trim();
@@ -26,4 +26,18 @@ export function presentProjectHref(
   }
 
   return { href: url.toString(), external: true };
+}
+
+const EMAIL = /^[^\s@<>"]+@[^\s@<>"]+\.[^\s@<>"]+$/;
+
+/** A single plain address. Empty or malformed values stay unpublished. */
+export function presentEmail(value: string | undefined): string | null {
+  const email = value?.trim() ?? '';
+  if (!email || email.length > 254 || email.includes('..')) {
+    return null;
+  }
+  if (!EMAIL.test(email)) {
+    return null;
+  }
+  return email;
 }

@@ -28,7 +28,7 @@ Pílulas da navegação usam raio `999px` (`.glass-card-pill`).
 
 1. `StarfieldBackground` — camada fixa. Gradiente navy → roxo → preto, malha de pontos e estrelas em SVG, vinheta. Sem canvas e sem parallax.
 2. `GlassCard` — preenchimento translúcido, blur, borda, brilho interno e sombra. `shape="pill"` na navegação. `tone="strong"` aumenta a opacidade.
-3. `SectionPlaceholder` — âncoras ainda sem seção própria ficam num `GlassCard` com o texto `Chega no PR N` / `Coming in PR N`. O `#hero` é o chat (PR3), também dentro de `GlassCard`.
+3. `SectionPlaceholder` — painel genérico, ainda no código, para uma âncora sem seção própria. Na home, cada âncora já tem seção.
 
 ## Navegação
 
@@ -60,6 +60,14 @@ O botão abre um modal acima da navegação. Com movimento permitido, o canvas (
 
 O `#journey` fica num `GlassCard` de largura inteira. Os marcos vêm de `content/journey.json`. No desktop (até 4 itens) os cartões ficam acima de um arco SVG em ciano; no mobile, e quando há mais de 4, a lista empilha na vertical com a mesma linha luminosa. A entrada usa Framer Motion (o traço do arco e um fade curto) e só começa depois de confirmar que o movimento é permitido. Com `prefers-reduced-motion: reduce`, o arco e os cartões ficam estáticos. Lista vazia mostra o estado vazio. Os itens atuais são placeholders de layout (`AAAA`, `Marco N`, `[Empresa]`, `[Cargo]`), com um aviso para substituir pelos marcos reais — não são empregadores, escolas ou datas.
 
+## PR8 — contato, foco e rodapé
+
+O `#contact` fica num `GlassCard` de largura inteira. E-mail e links vêm de `person.json`. Sem e-mail válido, ou sem link `http(s)` / caminho local, o bloco mostra um placeholder tracejado — não um endereço inventado. Com e-mail válido, o endereço é um `mailto:` e há um segundo link `mailto:` como chamada.
+
+O skip link é o primeiro foco da página. No `:focus` ele fica fixo, com fundo e anel ciano. O clique leva o foco ao `main` (`tabindex="-1"`), sem desenhar anel em volta da página inteira. Com um controle focado dentro de um painel, o vidro deixa o overflow visível para o anel não ser cortado.
+
+O rodapé é só o ano, o `displayName` (ou o placeholder de nome) e uma linha sobre o idioma da página.
+
 ## O que não entra nesta casca
 
-Textos reais de bio e a jornada real. O chat entrou no PR3. O arco de habilidades entrou no PR4, com placeholders de layout — não com fatos. Os cards de projeto entraram no PR5, também com placeholders — não com apps, empregadores ou métricas. O sobre (PR6) só mostra o que estiver em `person.json`; o resto é placeholder marcado. A jornada (PR7) mostra só o modelo de layout, marcado na tela.
+Textos reais de bio, contatos e a jornada real. O chat entrou no PR3. O arco de habilidades entrou no PR4, com placeholders de layout — não com fatos. Os cards de projeto entraram no PR5, também com placeholders — não com apps, empregadores ou métricas. O sobre (PR6) só mostra o que estiver em `person.json`; o resto é placeholder marcado. A jornada (PR7) mostra só o modelo de layout, marcado na tela. O contato (PR8) mostra só e-mail e links que passem na validação.

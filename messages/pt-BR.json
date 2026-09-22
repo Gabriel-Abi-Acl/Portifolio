@@ -123,5 +123,21 @@
         "prompt": "Como entro em contato?"
       }
     }
+  },
+  "contact": {
+    "kicker": "Contato",
+    "title": "Contato",
+    "intro": "E-mail e links saem de content/person.json. O que estiver vazio continua como placeholder.",
+    "emailLabel": "E-mail",
+    "socialsLabel": "Links",
+    "emailPlaceholder": "E-mail — preencher contactEmail em content/person.json",
+    "socialsPlaceholder": "Links — preencher socials em content/person.json",
+    "placeholderBadge": "Placeholder",
+    "emailCta": "Escrever um e-mail",
+    "newTab": "Abre em uma nova aba"
+  },
+  "footer": {
+    "namePlaceholder": "Nome — preencher em content/person.json",
+    "localeNote": "Idioma desta página: {locale}. O padrão do site é pt-BR, sem prefixo na URL. Inglês fica em /en."
   }
 }
