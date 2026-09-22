@@ -9,10 +9,11 @@ Site pessoal de Gabriel Abi Acl, construído em PRs modulares.
 - **PR4** — habilidades: ícones de exemplo num arco (caminho fechado, não um globo).
 - **PR5** — projetos: screenshot, descrição e tags em cards de vidro (placeholders de layout).
 - **PR6** — sobre: texto de `person.json` (placeholder se vazio) e modal de galáxia 3D sob demanda.
+- **PR7** — jornada: marcos de layout num arco (desktop) ou numa pilha (mobile).
 
-Jornada e textos reais ficam para os PRs seguintes.
+Textos reais ficam para o PR seguinte.
 
-Nenhum fato biográfico, empregador, projeto ou habilidade real foi inventado. `content/skills.json` e `content/projects.json` têm só placeholders de layout, marcados na tela. `content/person.json` e journey continuam vazios. `content/knowledge/chunks.json` tem só notas placeholder sobre o site em construção.
+Nenhum fato biográfico, empregador, projeto ou habilidade real foi inventado. `content/skills.json`, `content/projects.json` e `content/journey.json` têm só placeholders de layout, marcados na tela. `content/person.json` continua vazio. `content/knowledge/chunks.json` tem só notas placeholder sobre o site em construção.
 
 ## Requisitos
 
@@ -52,7 +53,7 @@ O limite é 10 mensagens a cada 10 minutos por IP. Com `UPSTASH_REDIS_REST_URL` 
 - `next-intl` com `pt-BR` (padrão) e `en`
 - Alias `@/` → `src/`
 
-A casca visual (PR2) acrescenta Lenis para scroll suave. Ele não inicia quando `prefers-reduced-motion: reduce` está ativo. O chat (PR3) usa `ai` e `@ai-sdk/google` só no servidor. O arco de habilidades (PR4) usa Framer Motion (`offsetPath` / `offsetDistance`). Os cards de projeto (PR5) usam Framer Motion só numa entrada curta, desligada com `prefers-reduced-motion`. A galáxia (PR6) usa `three`, `@react-three/fiber` e `@react-three/drei` só dentro do modal, em um chunk separado (`ssr: false`). Com `prefers-reduced-motion: reduce`, o modal mostra um SVG estático. GSAP ainda não entra.
+A casca visual (PR2) acrescenta Lenis para scroll suave. Ele não inicia quando `prefers-reduced-motion: reduce` está ativo. O chat (PR3) usa `ai` e `@ai-sdk/google` só no servidor. O arco de habilidades (PR4) usa Framer Motion (`offsetPath` / `offsetDistance`). Os cards de projeto (PR5) usam Framer Motion só numa entrada curta, desligada com `prefers-reduced-motion`. A galáxia (PR6) usa `three`, `@react-three/fiber` e `@react-three/drei` só dentro do modal, em um chunk separado (`ssr: false`). Com `prefers-reduced-motion: reduce`, o modal mostra um SVG estático. A jornada (PR7) usa Framer Motion numa entrada curta do arco e dos cartões; com `prefers-reduced-motion: reduce` o traço fica parado. GSAP ainda não entra.
 
 ## Idiomas
 
@@ -62,20 +63,20 @@ Mensagens em `messages/pt-BR.json` e `messages/en.json`. A configuração fica e
 
 Schemas em `src/content/types.ts`. Dados em JSON:
 
-| Arquivo                         | Tipo                                  |
-| ------------------------------- | ------------------------------------- |
-| `content/person.json`           | `Person` (campos vazios)              |
-| `content/skills.json`           | `Skill[]` (placeholders de layout)    |
-| `content/projects.json`         | `Project[]` (placeholders de layout)  |
-| `content/journey.json`          | `JourneyMilestone[]`                  |
-| `content/knowledge/chunks.json` | `ChatKnowledgeChunk[]` (placeholders) |
+| Arquivo                         | Tipo                                          |
+| ------------------------------- | --------------------------------------------- |
+| `content/person.json`           | `Person` (campos vazios)                      |
+| `content/skills.json`           | `Skill[]` (placeholders de layout)            |
+| `content/projects.json`         | `Project[]` (placeholders de layout)          |
+| `content/journey.json`          | `JourneyMilestone[]` (placeholders de layout) |
+| `content/knowledge/chunks.json` | `ChatKnowledgeChunk[]` (placeholders)         |
 
 Os loaders em `src/content/load.ts` leem esses arquivos no servidor. JSON inválido, arquivo ausente ou item malformado vira valor vazio. A página não quebra.
 
 ### Regras
 
 - Não inventar bio, cargo, cidade, empregadores, habilidades, descrições de projeto, tags ou datas.
-- Não preencher os stubs com texto de exemplo que pareça fato. A exceção é o placeholder de layout em skills e projects: o texto diz que é exemplo e a seção mostra um aviso.
+- Não preencher os stubs com texto de exemplo que pareça fato. A exceção é o placeholder de layout em skills, projects e journey: o texto diz que é exemplo e a seção mostra um aviso. Na jornada os rótulos são fichas de modelo (`AAAA`, `Marco N`, `[Empresa]`, `[Cargo]`), não empregadores nem datas.
 - Screenshots de projeto seguem a mesma regra do avatar: só um arquivo local que existe em `public/`. Sem arquivo, a seção mostra um esqueleto. `public/projects/placeholder.svg` é um gradiente de layout, não um print real.
 - Só gravar o que Gabriel fornecer. Campo desconhecido fica vazio ou o item não entra na lista.
 - `localeDefault: "pt-BR"` é o idioma padrão do site, não uma afirmação biográfica.
@@ -92,11 +93,11 @@ O detalhe está em [`docs/ROADMAP.md`](docs/ROADMAP.md).
 4. **PR4** — Animação das habilidades em arco. Feito.
 5. **PR5** — Projetos (screenshot, descrição, tags). Feito, com placeholders de layout.
 6. **PR6** — Sobre + modal de galáxia 3D. Feito.
-7. **PR7** — Linha do tempo da jornada.
+7. **PR7** — Linha do tempo da jornada. Feito, com placeholders de layout.
 8. **PR8** — Acabamento: i18n completo, SEO, `prefers-reduced-motion`.
 
 A âncora `#contact` aponta para o PR8 porque não há um PR só de contato.
 
 ## Fora deste PR
 
-GSAP, jornada e qualquer fato biográfico. A galáxia 3D entra só no modal do sobre, e não no primeiro carregamento da home.
+GSAP e qualquer fato biográfico. A galáxia 3D entra só no modal do sobre, e não no primeiro carregamento da home.

@@ -1,1 +1,45 @@
-[]
+[
+  {
+    "_comment": "PLACEHOLDERS — replace with real milestones. Labels are template tokens only (Marco, AAAA, [Empresa], [Cargo]). Not Gabriel's employers, schools, or dates."
+  },
+  {
+    "id": "placeholder-1",
+    "dateLabel": "AAAA",
+    "title": "Marco 1",
+    "description": "[Empresa]\n[Cargo]",
+    "kind": "other",
+    "icon": "sprout",
+    "order": 1,
+    "placeholder": true
+  },
+  {
+    "id": "placeholder-2",
+    "dateLabel": "AAAA",
+    "title": "Marco 2",
+    "description": "[Empresa]\n[Cargo]",
+    "kind": "other",
+    "icon": "pencil",
+    "order": 2,
+    "placeholder": true
+  },
+  {
+    "id": "placeholder-3",
+    "dateLabel": "AAAA",
+    "title": "Marco 3",
+    "description": "[Empresa]\n[Cargo]",
+    "kind": "other",
+    "icon": "cube",
+    "order": 3,
+    "placeholder": true
+  },
+  {
+    "id": "placeholder-4",
+    "dateLabel": "AAAA",
+    "title": "Marco 4",
+    "description": "[Empresa]\n[Cargo]",
+    "kind": "other",
+    "icon": "star",
+    "order": 4,
+    "placeholder": true
+  }
+]

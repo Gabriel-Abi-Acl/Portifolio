@@ -61,6 +61,17 @@
     "empty": "No skills have been added yet.",
     "trackLabel": "Skills along a curved path"
   },
+  "journey": {
+    "kicker": "Journey",
+    "title": "My journey",
+    "intro": "A timeline of stages. The arc below is a visual template, with no real dates or employers.",
+    "placeholderNote": "Layout template. Replace with real milestones. These cards are not employers, schools, or dates.",
+    "placeholderBadge": "Template",
+    "empty": "No milestones have been added yet.",
+    "trackLabel": "Journey milestones",
+    "footer": "Each milestone stands for a choice, a lesson, and a step forward.",
+    "motto": "Exploring. Creating. Making an impact."
+  },
   "projects": {
     "kicker": "Showcase",
     "title": "Projects",

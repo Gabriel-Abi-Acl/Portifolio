@@ -69,9 +69,11 @@ Não inclui chat, motion, 3D nem cards reais.
 
 ## PR7 — Jornada
 
-- Linha do tempo a partir de `content/journey.json`
+- `#journey` num `GlassCard` de largura inteira, a partir de `content/journey.json`
+- Desktop: arco SVG com 1–4 cartões. Mobile (e listas com mais de 4): pilha vertical
 - Lista vazia → estado vazio
-- Sem empregadores, escolas ou datas de exemplo
+- Este PR traz quatro placeholders de layout (`AAAA`, `Marco N`, `[Empresa]`, `[Cargo]`), marcados na tela. Não são empregadores, escolas ou datas do Gabriel
+- Entrada leve com Framer Motion; estática com `prefers-reduced-motion: reduce`
 
 ## PR8 — Acabamento
 

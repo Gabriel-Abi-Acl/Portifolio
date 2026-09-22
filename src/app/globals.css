@@ -158,6 +158,11 @@ body {
   animation: about-orbit 48s linear infinite;
 }
 
+.journey-arc {
+  filter: drop-shadow(0 0 4px rgb(62 224 197 / 0.95))
+    drop-shadow(0 0 14px rgb(62 224 197 / 0.5));
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
