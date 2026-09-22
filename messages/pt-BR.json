@@ -6,7 +6,7 @@
   "shell": {
     "kicker": "Casca visual",
     "title": "Portfólio",
-    "intro": "Painéis flutuantes sobre um fundo estático. Habilidades, projetos e as seções seguintes ainda estão vazias. Nenhum fato biográfico foi preenchido.",
+    "intro": "Painéis flutuantes sobre um fundo estático. Os cards de projeto são placeholders de layout. Nenhum fato biográfico foi preenchido.",
     "brand": "Portfólio",
     "navLabel": "Seções",
     "localeLabel": "Idioma",
@@ -43,6 +43,24 @@
     "placeholderNote": "Placeholders — substitua pelas habilidades reais.",
     "empty": "Nenhuma habilidade foi adicionada ainda.",
     "trackLabel": "Habilidades em um caminho curvo"
+  },
+  "projects": {
+    "kicker": "Vitrine",
+    "title": "Projetos",
+    "intro": "Cada card junta um screenshot, uma descrição curta e as linguagens ou ferramentas usadas.",
+    "placeholderNote": "Placeholders de layout. Estes cards ficam até o Gabriel enviar screenshots e textos reais.",
+    "placeholderBadge": "Placeholder",
+    "empty": "Nenhum projeto foi adicionado ainda.",
+    "screenshotMissing": "Screenshot ainda não adicionado",
+    "tagsLabel": "Ferramentas",
+    "linksLabel": "Links",
+    "newTab": "Abre em uma nova aba",
+    "links": {
+      "live": "Site",
+      "repo": "Repositório",
+      "case": "Estudo de caso",
+      "other": "Link"
+    }
   },
   "chat": {
     "title": "Chat",

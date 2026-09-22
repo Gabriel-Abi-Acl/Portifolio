@@ -54,6 +54,11 @@ export type Project = {
   }>;
   featured?: boolean;
   order: number;
+  /**
+   * Layout example only. The projects section shows a replacement note
+   * while any item is marked this way. Not a real project.
+   */
+  placeholder?: boolean;
 };
 
 export type JourneyMilestone = {

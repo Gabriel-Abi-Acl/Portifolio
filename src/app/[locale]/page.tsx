@@ -2,6 +2,7 @@ import { hasLocale } from 'next-intl';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { HeroSection } from '@/components/hero/HeroSection';
+import { ProjectsSection } from '@/components/projects/ProjectsSection';
 import { SkillsSection } from '@/components/skills/SkillsSection';
 import { SectionPlaceholder } from '@/components/shell/SectionPlaceholder';
 import {
@@ -51,6 +52,10 @@ export default async function HomePage({ params }: HomePageProps) {
 
         if (section.id === 'skills') {
           return <SkillsSection key={section.id} skills={skills} />;
+        }
+
+        if (section.id === 'projects') {
+          return <ProjectsSection key={section.id} projects={projects} />;
         }
 
         return (
