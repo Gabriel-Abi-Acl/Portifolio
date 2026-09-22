@@ -15,49 +15,87 @@ import {
 import { parseChatRequest } from '@/lib/chat-request';
 import { geminiLanguageModel } from '@/lib/gemini';
 import { buildChatInstructions } from '@/lib/knowledge-prompt';
+import { presentEmail, presentHref } from '@/lib/links';
 import { allowChatRequest, clientIp } from '@/lib/rate-limit';
 import { isGeminiConfigured } from '@/lib/server-env';
 
 export const runtime = 'nodejs';
 export const maxDuration = 30;
 
-function chatError(status: number, locale: ChatLocale, code: ChatErrorCode) {
+const MAX_BODY_BYTES = 100_000;
+
+function chatError(
+  status: number,
+  locale: ChatLocale,
+  code: ChatErrorCode,
+  extraHeaders?: Record<string, string>,
+) {
   return Response.json(
     { code, error: chatErrorMessage(locale, code) },
-    { status, headers: { 'cache-control': 'no-store' } },
+    {
+      status,
+      headers: { 'cache-control': 'no-store', ...extraHeaders },
+    },
   );
 }
 
-export async function POST(request: Request) {
-  let payload: unknown;
+function localeFromPayload(payload: unknown): ChatLocale {
+  if (
+    payload &&
+    typeof payload === 'object' &&
+    'locale' in payload &&
+    payload.locale === 'en'
+  ) {
+    return 'en';
+  }
+  return 'pt-BR';
+}
 
+function rateLimited(locale: ChatLocale, retryAfterSeconds: number) {
+  return chatError(429, locale, CHAT_ERROR_CODE.rateLimited, {
+    'retry-after': String(retryAfterSeconds),
+  });
+}
+
+export async function POST(request: Request) {
+  const decision = await allowChatRequest(clientIp(request));
+
+  const declared = Number(request.headers.get('content-length'));
+  if (Number.isFinite(declared) && declared > MAX_BODY_BYTES) {
+    return decision.allowed
+      ? chatError(400, 'pt-BR', CHAT_ERROR_CODE.invalid)
+      : rateLimited('pt-BR', decision.retryAfterSeconds);
+  }
+
+  let payload: unknown;
   try {
-    payload = await request.json();
+    const raw = await request.text();
+    if (raw.length > MAX_BODY_BYTES) {
+      return decision.allowed
+        ? chatError(400, 'pt-BR', CHAT_ERROR_CODE.invalid)
+        : rateLimited('pt-BR', decision.retryAfterSeconds);
+    }
+    payload = JSON.parse(raw) as unknown;
   } catch {
-    return chatError(400, 'pt-BR', CHAT_ERROR_CODE.invalid);
+    return decision.allowed
+      ? chatError(400, 'pt-BR', CHAT_ERROR_CODE.invalid)
+      : rateLimited('pt-BR', decision.retryAfterSeconds);
+  }
+
+  const localeHint = localeFromPayload(payload);
+  if (!decision.allowed) {
+    return rateLimited(localeHint, decision.retryAfterSeconds);
   }
 
   const parsed = parseChatRequest(payload);
   if (!parsed.ok) {
-    const locale =
-      payload &&
-      typeof payload === 'object' &&
-      'locale' in payload &&
-      payload.locale === 'en'
-        ? 'en'
-        : 'pt-BR';
-    return chatError(400, locale, CHAT_ERROR_CODE.invalid);
+    return chatError(400, localeHint, CHAT_ERROR_CODE.invalid);
   }
 
   const { locale, messages } = parsed;
 
   if (!isGeminiConfigured()) {
     return chatError(503, locale, CHAT_ERROR_CODE.missingKey);
-  }
-
-  const allowed = await allowChatRequest(clientIp(request));
-  if (!allowed) {
-    return chatError(429, locale, CHAT_ERROR_CODE.rateLimited);
   }
 
   const model = geminiLanguageModel();
@@ -69,11 +107,15 @@ export async function POST(request: Request) {
   const instructions = buildChatInstructions({
     locale,
     displayName: person.displayName,
-    contactEmail: person.contactEmail ?? '',
-    socials: person.socials.map((social) => ({
-      label: social.label,
-      href: social.href,
-    })),
+    contactEmail: presentEmail(person.contactEmail) ?? '',
+    socials: person.socials.flatMap((social) => {
+      const label = social.label.trim();
+      const safe = presentHref(social.href);
+      if (!label || !safe) {
+        return [];
+      }
+      return [{ label, href: safe.href }];
+    }),
     chunks: loadKnowledgeChunks(),
   });
 

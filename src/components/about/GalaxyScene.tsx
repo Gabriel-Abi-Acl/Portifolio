@@ -143,13 +143,17 @@ function StarPoints({
   );
 }
 
+function motionReduced() {
+  return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+}
+
 function GalaxyField() {
   const group = useRef<THREE.Group>(null);
   const clouds = useMemo(() => buildGalaxy(diskCount()), []);
 
   useFrame((_, delta) => {
     const node = group.current;
-    if (!node) return;
+    if (!node || motionReduced()) return;
     node.rotation.y += delta * 0.045;
   });
 
@@ -167,13 +171,15 @@ type GalaxySceneProps = {
 };
 
 export function GalaxyScene({ label }: GalaxySceneProps) {
+  const reduceMotion = motionReduced();
+
   return (
     <Canvas
       aria-label={label}
       style={{ touchAction: 'none' }}
       camera={{ position: [0, 1.7, 4.8], fov: 48 }}
       dpr={[1, 1.5]}
-      frameloop="always"
+      frameloop={reduceMotion ? 'demand' : 'always'}
       gl={{
         antialias: false,
         alpha: false,
@@ -189,7 +195,7 @@ export function GalaxyScene({ label }: GalaxySceneProps) {
         dampingFactor={0.08}
         rotateSpeed={0.55}
         zoomSpeed={0.6}
-        autoRotate
+        autoRotate={!reduceMotion}
         autoRotateSpeed={0.45}
         minDistance={2.2}
         maxDistance={8.5}

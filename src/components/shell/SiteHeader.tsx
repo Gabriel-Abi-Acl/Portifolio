@@ -115,12 +115,6 @@ export function SiteHeader({ brand }: SiteHeaderProps) {
 
   return (
     <header className="fixed inset-x-0 top-0 z-40 px-4 pt-4 sm:px-6">
-      <a
-        href="#content"
-        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-background focus:px-4 focus:py-2 focus:text-sm"
-      >
-        {t('skip')}
-      </a>
       <div className="mx-auto w-full max-w-5xl">
         <div className="relative flex items-center justify-between gap-3">
           <GlassCard shape="pill" className="z-10 min-w-0 shrink-0 px-4 py-2.5">
