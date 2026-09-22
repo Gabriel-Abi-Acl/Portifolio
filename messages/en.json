@@ -1,12 +1,12 @@
 {
   "meta": {
     "title": "Portfolio",
-    "description": "Portfolio visual shell. Sections have no content yet."
+    "description": "Portfolio with a chat that answers only from notes added to the site."
   },
   "shell": {
     "kicker": "Visual shell",
     "title": "Portfolio",
-    "intro": "Floating panels over a static background. Chat, skills, and projects land in later PRs. No biographical facts have been filled in.",
+    "intro": "Floating panels over a static background. Skills, projects, and later sections are still empty. No biographical facts have been filled in.",
     "brand": "Portfolio",
     "navLabel": "Sections",
     "localeLabel": "Language",
@@ -27,5 +27,47 @@
   "notFound": {
     "title": "Page not found",
     "body": "That address does not exist on this site."
+  },
+  "hero": {
+    "kicker": "Chat",
+    "headline": "Ask this portfolio",
+    "subhead": "The assistant answers only from notes added to the site. Biography, skills, and projects are not filled in yet.",
+    "namePlaceholder": "Name",
+    "nameMissing": "Name not added yet.",
+    "avatarEmpty": "Photo not added yet"
+  },
+  "chat": {
+    "title": "Chat",
+    "label": "Message",
+    "logLabel": "Conversation",
+    "placeholder": "Ask about this portfolio…",
+    "send": "Send",
+    "you": "You",
+    "assistant": "Assistant",
+    "thinking": "Thinking…",
+    "empty": "Pick a suggestion or write a question. Nothing here is a biography yet.",
+    "missingKey": "Chat is off until GEMINI_API_KEY is set on the server.",
+    "rateLimited": "Too many messages just now. Wait a moment and try again.",
+    "invalid": "That message could not be sent. Try a shorter question.",
+    "error": "The assistant could not answer. Try again in a moment.",
+    "chipsLabel": "Suggested questions",
+    "chips": {
+      "work": {
+        "label": "Work",
+        "prompt": "Which projects are listed on this portfolio?"
+      },
+      "about": {
+        "label": "About",
+        "prompt": "What can this site tell me so far?"
+      },
+      "skills": {
+        "label": "Skills",
+        "prompt": "Which skills are listed?"
+      },
+      "contact": {
+        "label": "Contact",
+        "prompt": "How can I get in touch?"
+      }
+    }
   }
 }

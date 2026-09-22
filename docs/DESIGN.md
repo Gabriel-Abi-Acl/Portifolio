@@ -28,7 +28,7 @@ Pílulas da navegação usam raio `999px` (`.glass-card-pill`).
 
 1. `StarfieldBackground` — camada fixa. Gradiente navy → roxo → preto, malha de pontos e estrelas em SVG, vinheta. Sem canvas e sem parallax.
 2. `GlassCard` — preenchimento translúcido, blur, borda, brilho interno e sombra. `shape="pill"` na navegação. `tone="strong"` aumenta a opacidade.
-3. `SectionPlaceholder` — cada âncora da home dentro de um `GlassCard`. O texto continua sendo o placeholder (`Chega no PR N` / `Coming in PR N`).
+3. `SectionPlaceholder` — âncoras ainda sem seção própria ficam num `GlassCard` com o texto `Chega no PR N` / `Coming in PR N`. O `#hero` é o chat (PR3), também dentro de `GlassCard`.
 
 ## Navegação
 
