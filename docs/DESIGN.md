@@ -50,6 +50,12 @@ O `#skills` fica num `GlassCard` de largura inteira. Os ícones (Simple Icons) a
 
 O `#projects` fica num `GlassCard` de largura inteira. Cada item é uma linha: screenshot à esquerda e, à direita, descrição curta mais tags em pílula. No mobile a imagem fica em cima e o texto embaixo. Links (`live`, `repo`, `case`, `other`) só aparecem quando o JSON traz um `href` http(s) ou um caminho local. A entrada usa Framer Motion (opacidade e um deslocamento curto) e só começa depois de confirmar que o movimento é permitido. Com `prefers-reduced-motion: reduce`, a lista fica estática. Se o arquivo em `public/` não existir, o espaço da imagem vira um esqueleto. Os itens atuais de `content/projects.json` são placeholders de layout.
 
+## PR6 — sobre e galáxia
+
+O `#about` fica num `GlassCard` de largura inteira. O parágrafo vem de `person.bio` no idioma da página. Sem texto, a seção mostra um aviso para preencher `content/person.json` — não uma biografia. Os interesses vazios viram mini-cards com o rótulo Placeholder, com um leve movimento em CSS. `prefers-reduced-motion: reduce` deixa esses cards parados.
+
+O botão abre um modal acima da navegação. Com movimento permitido, o canvas (React Three Fiber) entra só nesse momento, num chunk separado. Fechar desmonta o canvas. Com movimento reduzido, o modal mostra um campo de estrelas em SVG e gradiente, sem WebGL.
+
 ## O que não entra nesta casca
 
-Bio, jornada, screenshots reais ou avatar. O chat entrou no PR3. O arco de habilidades entrou no PR4, com placeholders de layout — não com fatos. Os cards de projeto entraram no PR5, também com placeholders — não com apps, empregadores ou métricas.
+Jornada e textos reais de bio. O chat entrou no PR3. O arco de habilidades entrou no PR4, com placeholders de layout — não com fatos. Os cards de projeto entraram no PR5, também com placeholders — não com apps, empregadores ou métricas. O sobre (PR6) só mostra o que estiver em `person.json`; o resto é placeholder marcado.

@@ -8,8 +8,9 @@ Site pessoal de Gabriel Abi Acl, construído em PRs modulares.
 - **PR3** — hero com chat (Gemini no servidor e notas placeholder).
 - **PR4** — habilidades: ícones de exemplo num arco (caminho fechado, não um globo).
 - **PR5** — projetos: screenshot, descrição e tags em cards de vidro (placeholders de layout).
+- **PR6** — sobre: texto de `person.json` (placeholder se vazio) e modal de galáxia 3D sob demanda.
 
-Sobre, jornada e textos reais ficam para os PRs seguintes.
+Jornada e textos reais ficam para os PRs seguintes.
 
 Nenhum fato biográfico, empregador, projeto ou habilidade real foi inventado. `content/skills.json` e `content/projects.json` têm só placeholders de layout, marcados na tela. `content/person.json` e journey continuam vazios. `content/knowledge/chunks.json` tem só notas placeholder sobre o site em construção.
 
@@ -51,7 +52,7 @@ O limite é 10 mensagens a cada 10 minutos por IP. Com `UPSTASH_REDIS_REST_URL` 
 - `next-intl` com `pt-BR` (padrão) e `en`
 - Alias `@/` → `src/`
 
-A casca visual (PR2) acrescenta Lenis para scroll suave. Ele não inicia quando `prefers-reduced-motion: reduce` está ativo. O chat (PR3) usa `ai` e `@ai-sdk/google` só no servidor. O arco de habilidades (PR4) usa Framer Motion (`offsetPath` / `offsetDistance`). Os cards de projeto (PR5) usam Framer Motion só numa entrada curta, desligada com `prefers-reduced-motion`. GSAP e React Three Fiber ainda não entram.
+A casca visual (PR2) acrescenta Lenis para scroll suave. Ele não inicia quando `prefers-reduced-motion: reduce` está ativo. O chat (PR3) usa `ai` e `@ai-sdk/google` só no servidor. O arco de habilidades (PR4) usa Framer Motion (`offsetPath` / `offsetDistance`). Os cards de projeto (PR5) usam Framer Motion só numa entrada curta, desligada com `prefers-reduced-motion`. A galáxia (PR6) usa `three`, `@react-three/fiber` e `@react-three/drei` só dentro do modal, em um chunk separado (`ssr: false`). Com `prefers-reduced-motion: reduce`, o modal mostra um SVG estático. GSAP ainda não entra.
 
 ## Idiomas
 
@@ -90,7 +91,7 @@ O detalhe está em [`docs/ROADMAP.md`](docs/ROADMAP.md).
 3. **PR3** — Hero + chat (Gemini + notas placeholder). Feito.
 4. **PR4** — Animação das habilidades em arco. Feito.
 5. **PR5** — Projetos (screenshot, descrição, tags). Feito, com placeholders de layout.
-6. **PR6** — Sobre + modal de galáxia 3D.
+6. **PR6** — Sobre + modal de galáxia 3D. Feito.
 7. **PR7** — Linha do tempo da jornada.
 8. **PR8** — Acabamento: i18n completo, SEO, `prefers-reduced-motion`.
 
@@ -98,4 +99,4 @@ A âncora `#contact` aponta para o PR8 porque não há um PR só de contato.
 
 ## Fora deste PR
 
-GSAP, React Three Fiber, galáxia, jornada, textos reais de projeto e qualquer fato biográfico.
+GSAP, jornada e qualquer fato biográfico. A galáxia 3D entra só no modal do sobre, e não no primeiro carregamento da home.

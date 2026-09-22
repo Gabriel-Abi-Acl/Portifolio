@@ -4,8 +4,10 @@ import fs from 'node:fs';
 import path from 'node:path';
 import type {
   ChatKnowledgeChunk,
+  Interest,
   JourneyMilestone,
   LocaleCode,
+  LocalizedCopy,
   Person,
   Project,
   Skill,
@@ -184,7 +186,39 @@ function parsePerson(value: unknown): Person {
     }
   }
 
+  const bio = parseLocalized(value.bio);
+  if (bio) person.bio = bio;
+
+  if (Array.isArray(value.interests)) {
+    person.interests = value.interests.flatMap((item) => {
+      const interest = parseInterest(item);
+      return interest === undefined ? [] : [interest];
+    });
+  }
+
   return person;
+}
+
+function parseLocalized(value: unknown): LocalizedCopy | undefined {
+  if (!isRecord(value)) return undefined;
+
+  const copy: LocalizedCopy = {};
+  for (const locale of LOCALES) {
+    const text = readString(value, locale);
+    if (text !== undefined) copy[locale] = text;
+  }
+
+  return Object.keys(copy).length > 0 ? copy : undefined;
+}
+
+function parseInterest(value: unknown): Interest | undefined {
+  if (!isRecord(value)) return undefined;
+
+  const id = readString(value, 'id')?.trim();
+  const label = parseLocalized(value.label);
+  if (!id || !label) return undefined;
+
+  return { id, label };
 }
 
 function isSkillLevel(value: unknown): value is NonNullable<Skill['level']> {

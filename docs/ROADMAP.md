@@ -60,10 +60,12 @@ Não inclui chat, motion, 3D nem cards reais.
 
 ## PR6 — Sobre + galáxia 3D
 
-- Seção sobre a partir de `content/person.json` e chunks de conhecimento
-- Modal com React Three Fiber carregado sob demanda (`ssr: false`)
-- Não colocar Three no caminho crítico da home
-- Sem motion reduzido → imagem ou gradiente estático no lugar do canvas
+- `#about` num `GlassCard` de largura inteira
+- Texto curto de `person.bio` (`pt-BR` / `en`). Vazio → placeholder pedindo para preencher `content/person.json`. Sem biografia inventada
+- Interesses de `person.interests` quando o rótulo do idioma existe; senão chips marcados como placeholder
+- Botão abre um modal (foco preso, Esc, `aria-modal`, clique fora fecha)
+- Cena com React Three Fiber + drei em `next/dynamic` (`ssr: false`): partículas, rotação leve, OrbitControls com damping. O canvas desmonta ao fechar
+- `prefers-reduced-motion: reduce` → campo de estrelas em CSS/SVG, sem WebGL
 
 ## PR7 — Jornada
 
