@@ -1,12 +1,20 @@
 import { getTranslations } from 'next-intl/server';
+import { GlassCard } from '@/components/shell/GlassCard';
 
 export default async function NotFound() {
   const t = await getTranslations('notFound');
 
   return (
-    <main className="mx-auto flex w-full max-w-3xl flex-col px-6 py-10">
-      <h1 className="text-2xl font-semibold">{t('title')}</h1>
-      <p className="mt-2 text-sm">{t('body')}</p>
+    <main
+      id="content"
+      className="mx-auto flex w-full max-w-5xl flex-col px-4 pt-32 pb-24 sm:px-6"
+    >
+      <GlassCard className="px-6 py-10 sm:px-10">
+        <h1 className="text-2xl font-semibold tracking-tight">{t('title')}</h1>
+        <p className="mt-3 max-w-xl text-sm leading-6 text-muted">
+          {t('body')}
+        </p>
+      </GlassCard>
     </main>
   );
 }

@@ -9,7 +9,6 @@ import {
   loadProjects,
   loadSkills,
 } from '@/content/load';
-import { Link } from '@/i18n/navigation';
 import { routing } from '@/i18n/routing';
 import { HOME_SECTIONS } from '@/lib/sections';
 
@@ -35,52 +34,29 @@ export default async function HomePage({ params }: HomePageProps) {
   const chunks = loadKnowledgeChunks();
 
   return (
-    <main className="mx-auto flex w-full max-w-3xl flex-col px-6 py-10">
-      <header className="mb-8">
-        <p className="text-sm">{t('kicker')}</p>
-        <h1 className="mt-2 text-3xl font-semibold tracking-tight">
-          {t('title')}
-        </h1>
-        <p className="mt-3 max-w-2xl text-sm leading-6">{t('intro')}</p>
-        <nav aria-label={t('navLabel')} className="mt-6">
-          <ul className="flex flex-wrap gap-x-4 gap-y-2 text-sm">
-            {HOME_SECTIONS.map((section) => (
-              <li key={section.id}>
-                <a
-                  className="underline underline-offset-4"
-                  href={`#${section.id}`}
-                >
-                  {sections(section.id)}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
-        <p className="mt-4 text-sm">
-          <Link
-            href="/"
-            locale="pt-BR"
-            className="underline underline-offset-4"
-          >
-            pt-BR
-          </Link>
-          {' · '}
-          <Link href="/" locale="en" className="underline underline-offset-4">
-            en
-          </Link>
-        </p>
-      </header>
-
-      {HOME_SECTIONS.map((section) => (
+    <main
+      id="content"
+      className="mx-auto grid w-full max-w-5xl grid-cols-1 gap-5 px-4 pt-28 pb-24 sm:px-6 sm:pt-32 lg:grid-cols-2 lg:gap-6"
+    >
+      {HOME_SECTIONS.map((section, index) => (
         <SectionPlaceholder
           key={section.id}
           id={section.id}
+          index={index + 1}
           title={sections(section.id)}
           note={t('coming', { pr: section.pr })}
+          className={
+            section.id === 'hero' || section.id === 'contact'
+              ? 'lg:col-span-2'
+              : undefined
+          }
+          kicker={section.id === 'hero' ? t('kicker') : undefined}
+          headline={section.id === 'hero' ? t('title') : undefined}
+          intro={section.id === 'hero' ? t('intro') : undefined}
         />
       ))}
 
-      <p className="mt-10 text-xs leading-5">
+      <p className="px-2 text-center text-xs leading-5 text-muted lg:col-span-2">
         {t('contentStatus', {
           socials: person.socials.length,
           skills: skills.length,
