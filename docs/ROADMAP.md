@@ -30,13 +30,15 @@ Não inclui chat, motion, 3D nem cards reais.
 
 ## PR3 — Hero + chat
 
-- Hero com avatar somente se o arquivo real existir; senão, espaço vazio
-- `POST /api/chat` no servidor, chave `GEMINI_API_KEY` só no servidor
-- Modelo padrão: `GEMINI_MODEL` (`gemini-3.5-flash-lite`)
+- Hero no card de vidro: avatar só se o arquivo existir em `public/`; senão iniciais (quando há nome) ou espaço vazio
+- Nome de `person.displayName`; vazio mostra o placeholder de i18n
+- `POST /api/chat` com AI SDK + `@ai-sdk/google`, resposta em stream, `GEMINI_API_KEY` só no servidor
+- Modelo: `GEMINI_MODEL`, padrão `gemini-3.5-flash-lite`
 - Injeta `content/knowledge/chunks.json` no system prompt (sem vector DB)
-- Recusa inventar projetos ou dados que não estejam nos chunks
-- UI de chat no hero: estado vazio, indicador de espera, sem copiar prompts de outros sites
-- Rate limit pode esperar o PR8; documentar o limite se o endpoint já for público
+- Os chunks deste PR são placeholders sobre o site em construção — não são fatos de carreira
+- Recusa inventar empregadores, projetos ou habilidades
+- UI: chips que preenchem o campo, bolhas, indicador de espera, envio desligado enquanto responde
+- Rate limit: 10 pedidos / 10 minutos / IP. Upstash se as duas chaves existirem; senão memória do processo
 
 ## PR4 — Habilidades em arco
 
@@ -67,7 +69,7 @@ Não inclui chat, motion, 3D nem cards reais.
 ## PR8 — Acabamento
 
 - Completar mensagens `pt-BR` / `en` de tudo que ficou hardcoded
-- Rate limit (Upstash ou equivalente) no chat
+- Rate limit do chat já existe no PR3; aqui só endurecer se ainda faltar (várias instâncias, SEO)
 - SEO: metadata, URL canônica (`NEXT_PUBLIC_SITE_URL`), alternates de idioma
 - `prefers-reduced-motion` em arco, galáxia e qualquer motion introduzido antes
 - Seção `#contact` com os links reais de `person.socials` / `contactEmail` — só o que estiver preenchido

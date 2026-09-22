@@ -1,1 +1,29 @@
-[]
+[
+  {
+    "id": "placeholder-site-status",
+    "topic": "other",
+    "title": "PLACEHOLDER — site status",
+    "body": "PLACEHOLDER, not a biographical fact.\nEN: This portfolio website is under construction. The about, skills, projects, and journey sections do not contain real content yet. An empty section is not a description of Gabriel.\nPT: Este site de portfólio está em construção. As seções sobre, habilidades, projetos e jornada ainda não têm conteúdo real. Uma seção vazia não descreve o Gabriel.",
+    "priority": 30,
+    "tags": ["placeholder", "meta"],
+    "updatedAt": "2026-09-22"
+  },
+  {
+    "id": "placeholder-chat-scope",
+    "topic": "faq",
+    "title": "PLACEHOLDER — what the chat knows",
+    "body": "PLACEHOLDER, not a biographical fact.\nEN: The assistant may only repeat these notes. Employers, skills, projects, education, and dates have not been added. If a question is not covered, say that information is not available yet and suggest contacting Gabriel.\nPT: O assistente só pode repetir estas notas. Empregadores, habilidades, projetos, formação e datas não foram adicionados. Se a pergunta não estiver coberta, diga que essa informação ainda não está disponível e sugira entrar em contato com o Gabriel.",
+    "priority": 20,
+    "tags": ["placeholder", "meta", "faq"],
+    "updatedAt": "2026-09-22"
+  },
+  {
+    "id": "placeholder-contact",
+    "topic": "contact",
+    "title": "PLACEHOLDER — contact",
+    "body": "PLACEHOLDER, not a biographical fact.\nEN: No public email address or social link has been added to the site. When someone asks how to reach Gabriel, say that contact details are not published yet.\nPT: Nenhum e-mail público ou link social foi adicionado ao site. Se alguém perguntar como falar com o Gabriel, diga que os dados de contato ainda não foram publicados.",
+    "priority": 10,
+    "tags": ["placeholder", "meta", "contact"],
+    "updatedAt": "2026-09-22"
+  }
+]

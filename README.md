@@ -5,9 +5,11 @@ Site pessoal de Gabriel Abi Acl, construído em PRs modulares.
 - **PR1** — esqueleto: Next.js, idiomas, schemas vazios e uma página com âncoras.
 - **PR2** — casca visual: fundo estático, cards de vidro e navegação fixa. Tokens em [`docs/DESIGN.md`](docs/DESIGN.md).
 
-Chat, animações de conteúdo e textos reais ficam para os PRs seguintes.
+- **PR3** — hero com chat (Gemini no servidor e notas placeholder).
 
-Nenhum fato biográfico, empregador, habilidade ou projeto foi inventado. Os arquivos em `content/` estão vazios de propósito.
+Animações de conteúdo e textos reais ficam para os PRs seguintes.
+
+Nenhum fato biográfico, empregador, habilidade ou projeto foi inventado. `content/person.json`, skills, projects e journey continuam vazios. `content/knowledge/chunks.json` tem só notas placeholder sobre o site em construção.
 
 ## Requisitos
 
@@ -24,7 +26,9 @@ pnpm dev
 
 Abra [http://localhost:3000](http://localhost:3000). O idioma padrão é **pt-BR** e não usa prefixo na URL, mesmo se o navegador pedir inglês. Inglês fica em [http://localhost:3000/en](http://localhost:3000/en), pelo link da página.
 
-A chave `GEMINI_API_KEY` pode ficar vazia neste PR. O chat ainda não existe.
+Sem `GEMINI_API_KEY`, o chat do hero aparece desligado e o envio fica desabilitado. Com a chave, `POST /api/chat` responde em stream. O modelo é `GEMINI_MODEL` (padrão `gemini-3.5-flash-lite`). A chave não vai para o browser.
+
+O limite é 10 mensagens a cada 10 minutos por IP. Com `UPSTASH_REDIS_REST_URL` e `UPSTASH_REDIS_REST_TOKEN`, o limite usa Upstash. Sem os dois, vale um limite em memória: ele zera quando o processo reinicia e não é compartilhado entre instâncias. Acima do limite, a tela mostra um aviso.
 
 ## Scripts
 
@@ -45,7 +49,7 @@ A chave `GEMINI_API_KEY` pode ficar vazia neste PR. O chat ainda não existe.
 - `next-intl` com `pt-BR` (padrão) e `en`
 - Alias `@/` → `src/`
 
-A casca visual (PR2) acrescenta Lenis para scroll suave. Ele não inicia quando `prefers-reduced-motion: reduce` está ativo. Framer Motion, GSAP, React Three Fiber e o cliente do Gemini ainda não entram.
+A casca visual (PR2) acrescenta Lenis para scroll suave. Ele não inicia quando `prefers-reduced-motion: reduce` está ativo. O chat (PR3) usa `ai` e `@ai-sdk/google` só no servidor. Framer Motion, GSAP e React Three Fiber ainda não entram.
 
 ## Idiomas
 
@@ -55,13 +59,13 @@ Mensagens em `messages/pt-BR.json` e `messages/en.json`. A configuração fica e
 
 Schemas em `src/content/types.ts`. Dados em JSON:
 
-| Arquivo                         | Tipo                     |
-| ------------------------------- | ------------------------ |
-| `content/person.json`           | `Person` (campos vazios) |
-| `content/skills.json`           | `Skill[]`                |
-| `content/projects.json`         | `Project[]`              |
-| `content/journey.json`          | `JourneyMilestone[]`     |
-| `content/knowledge/chunks.json` | `ChatKnowledgeChunk[]`   |
+| Arquivo                         | Tipo                                  |
+| ------------------------------- | ------------------------------------- |
+| `content/person.json`           | `Person` (campos vazios)              |
+| `content/skills.json`           | `Skill[]`                             |
+| `content/projects.json`         | `Project[]`                           |
+| `content/journey.json`          | `JourneyMilestone[]`                  |
+| `content/knowledge/chunks.json` | `ChatKnowledgeChunk[]` (placeholders) |
 
 Os loaders em `src/content/load.ts` leem esses arquivos no servidor. JSON inválido, arquivo ausente ou item malformado vira valor vazio. A página não quebra.
 
@@ -71,7 +75,7 @@ Os loaders em `src/content/load.ts` leem esses arquivos no servidor. JSON invál
 - Não preencher os stubs com texto de exemplo que pareça fato.
 - Só gravar o que Gabriel fornecer. Campo desconhecido fica vazio ou o item não entra na lista.
 - `localeDefault: "pt-BR"` é o idioma padrão do site, não uma afirmação biográfica.
-- Screenshots e avatar só entram quando os arquivos reais existirem em `public/`.
+- Screenshots e avatar só entram quando os arquivos reais existirem em `public/`. O hero usa `avatar.src` só se for um caminho local que existe (por exemplo `/avatar.jpg`). URL externa é ignorada.
 - Segredos ficam em `.env.local` (gitignored). Nunca usar `NEXT_PUBLIC_` em chave de API.
 
 ## Roteiro dos PRs
@@ -80,15 +84,15 @@ O detalhe está em [`docs/ROADMAP.md`](docs/ROADMAP.md).
 
 1. **PR1** — Fundação (este): Next.js 15, Tailwind v4, i18n mínimo, schemas e stubs vazios.
 2. **PR2** — Casca visual: fundo estático, cards de vidro, navegação.
-3. **PR3** — Hero + chat (Gemini + base de conhecimento).
+3. **PR3** — Hero + chat (Gemini + notas placeholder). Feito.
 4. **PR4** — Animação das habilidades em arco.
 5. **PR5** — Projetos (screenshot, descrição, tags).
 6. **PR6** — Sobre + modal de galáxia 3D.
 7. **PR7** — Linha do tempo da jornada.
-8. **PR8** — Acabamento: i18n completo, rate limit, SEO, `prefers-reduced-motion`.
+8. **PR8** — Acabamento: i18n completo, SEO, `prefers-reduced-motion`.
 
 A âncora `#contact` aponta para o PR8 porque não há um PR só de contato.
 
-## Fora da casca visual
+## Fora deste PR
 
-Chat (`/api/chat`), Framer Motion, GSAP, React Three Fiber, arco de skills, galáxia, cards de projeto com conteúdo e qualquer copy de portfólio.
+Framer Motion, GSAP, React Three Fiber, arco de skills, galáxia, cards de projeto com conteúdo, jornada, livro de visitas e qualquer fato biográfico.

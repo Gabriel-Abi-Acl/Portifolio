@@ -1,12 +1,12 @@
 {
   "meta": {
     "title": "Portfólio",
-    "description": "Casca visual do portfólio. As seções ainda não têm conteúdo."
+    "description": "Portfólio com um chat que responde só com as notas adicionadas ao site."
   },
   "shell": {
     "kicker": "Casca visual",
     "title": "Portfólio",
-    "intro": "Painéis flutuantes sobre um fundo estático. Chat, habilidades e projetos entram nos próximos PRs. Nenhum fato biográfico foi preenchido.",
+    "intro": "Painéis flutuantes sobre um fundo estático. Habilidades, projetos e as seções seguintes ainda estão vazias. Nenhum fato biográfico foi preenchido.",
     "brand": "Portfólio",
     "navLabel": "Seções",
     "localeLabel": "Idioma",
@@ -27,5 +27,47 @@
   "notFound": {
     "title": "Página não encontrada",
     "body": "Esse endereço não existe neste site."
+  },
+  "hero": {
+    "kicker": "Chat",
+    "headline": "Pergunte a este portfólio",
+    "subhead": "O assistente responde só com as notas adicionadas ao site. Biografia, habilidades e projetos ainda não foram preenchidos.",
+    "namePlaceholder": "Nome",
+    "nameMissing": "Nome ainda não adicionado.",
+    "avatarEmpty": "Foto ainda não adicionada"
+  },
+  "chat": {
+    "title": "Chat",
+    "label": "Mensagem",
+    "logLabel": "Conversa",
+    "placeholder": "Pergunte sobre este portfólio…",
+    "send": "Enviar",
+    "you": "Você",
+    "assistant": "Assistente",
+    "thinking": "Pensando…",
+    "empty": "Escolha uma sugestão ou escreva uma pergunta. Nada aqui é uma biografia ainda.",
+    "missingKey": "O chat fica desligado até a GEMINI_API_KEY existir no servidor.",
+    "rateLimited": "Muitas mensagens agora. Espere um pouco e tente de novo.",
+    "invalid": "Não foi possível enviar essa mensagem. Tente uma pergunta mais curta.",
+    "error": "O assistente não conseguiu responder. Tente de novo em instantes.",
+    "chipsLabel": "Perguntas sugeridas",
+    "chips": {
+      "work": {
+        "label": "Trabalho",
+        "prompt": "Quais projetos estão listados neste portfólio?"
+      },
+      "about": {
+        "label": "Sobre",
+        "prompt": "O que este site já pode contar?"
+      },
+      "skills": {
+        "label": "Habilidades",
+        "prompt": "Quais habilidades estão listadas?"
+      },
+      "contact": {
+        "label": "Contato",
+        "prompt": "Como entro em contato?"
+      }
+    }
   }
 }
