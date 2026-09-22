@@ -61,6 +61,17 @@
     "empty": "Nenhuma habilidade foi adicionada ainda.",
     "trackLabel": "Habilidades em um caminho curvo"
   },
+  "journey": {
+    "kicker": "Jornada",
+    "title": "Minha jornada",
+    "intro": "Uma linha do tempo das etapas. O arco abaixo é um modelo visual, sem datas ou empresas reais.",
+    "placeholderNote": "Modelo de layout. Substitua pelos marcos reais. Estes cartões não são empregadores, escolas ou datas.",
+    "placeholderBadge": "Modelo",
+    "empty": "Nenhum marco foi adicionado ainda.",
+    "trackLabel": "Marcos da jornada",
+    "footer": "Cada marco representa uma escolha, um aprendizado e uma evolução.",
+    "motto": "Explorando. Criando. Impactando."
+  },
   "projects": {
     "kicker": "Vitrine",
     "title": "Projetos",

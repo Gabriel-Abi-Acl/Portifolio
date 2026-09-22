@@ -3,6 +3,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { AboutSection } from '@/components/about/AboutSection';
 import { HeroSection } from '@/components/hero/HeroSection';
+import { JourneySection } from '@/components/journey/JourneySection';
 import { ProjectsSection } from '@/components/projects/ProjectsSection';
 import { SkillsSection } from '@/components/skills/SkillsSection';
 import { SectionPlaceholder } from '@/components/shell/SectionPlaceholder';
@@ -61,6 +62,10 @@ export default async function HomePage({ params }: HomePageProps) {
 
         if (section.id === 'projects') {
           return <ProjectsSection key={section.id} projects={projects} />;
+        }
+
+        if (section.id === 'journey') {
+          return <JourneySection key={section.id} milestones={journey} />;
         }
 
         return (

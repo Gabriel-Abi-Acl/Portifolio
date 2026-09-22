@@ -56,6 +56,10 @@ O `#about` fica num `GlassCard` de largura inteira. O parágrafo vem de `person.
 
 O botão abre um modal acima da navegação. Com movimento permitido, o canvas (React Three Fiber) entra só nesse momento, num chunk separado. Fechar desmonta o canvas. Com movimento reduzido, o modal mostra um campo de estrelas em SVG e gradiente, sem WebGL.
 
+## PR7 — jornada
+
+O `#journey` fica num `GlassCard` de largura inteira. Os marcos vêm de `content/journey.json`. No desktop (até 4 itens) os cartões ficam acima de um arco SVG em ciano; no mobile, e quando há mais de 4, a lista empilha na vertical com a mesma linha luminosa. A entrada usa Framer Motion (o traço do arco e um fade curto) e só começa depois de confirmar que o movimento é permitido. Com `prefers-reduced-motion: reduce`, o arco e os cartões ficam estáticos. Lista vazia mostra o estado vazio. Os itens atuais são placeholders de layout (`AAAA`, `Marco N`, `[Empresa]`, `[Cargo]`), com um aviso para substituir pelos marcos reais — não são empregadores, escolas ou datas.
+
 ## O que não entra nesta casca
 
-Jornada e textos reais de bio. O chat entrou no PR3. O arco de habilidades entrou no PR4, com placeholders de layout — não com fatos. Os cards de projeto entraram no PR5, também com placeholders — não com apps, empregadores ou métricas. O sobre (PR6) só mostra o que estiver em `person.json`; o resto é placeholder marcado.
+Textos reais de bio e a jornada real. O chat entrou no PR3. O arco de habilidades entrou no PR4, com placeholders de layout — não com fatos. Os cards de projeto entraram no PR5, também com placeholders — não com apps, empregadores ou métricas. O sobre (PR6) só mostra o que estiver em `person.json`; o resto é placeholder marcado. A jornada (PR7) mostra só o modelo de layout, marcado na tela.

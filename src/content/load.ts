@@ -354,6 +354,8 @@ function parseJourneyMilestone(value: unknown): JourneyMilestone | undefined {
   const icon = readString(value, 'icon');
   if (icon !== undefined) milestone.icon = icon;
 
+  if (value.placeholder === true) milestone.placeholder = true;
+
   return milestone;
 }
 

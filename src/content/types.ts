@@ -81,6 +81,11 @@ export type JourneyMilestone = {
   kind: 'education' | 'work' | 'project' | 'award' | 'other';
   icon?: string;
   order: number;
+  /**
+   * Layout example only. The journey section shows a replacement note
+   * while any item is marked this way. Not an employer, school, or date.
+   */
+  placeholder?: boolean;
 };
 
 export type ChatKnowledgeChunk = {
