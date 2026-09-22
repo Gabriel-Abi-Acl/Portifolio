@@ -12,5 +12,10 @@
     "timezone": ""
   },
   "socials": [],
-  "contactEmail": ""
+  "contactEmail": "",
+  "bio": {
+    "pt-BR": "",
+    "en": ""
+  },
+  "interests": []
 }

@@ -36,6 +36,23 @@
     "nameMissing": "Name not added yet.",
     "avatarEmpty": "Photo not added yet"
   },
+  "about": {
+    "kicker": "About",
+    "title": "About",
+    "blurb": "A short note from the site content, and a galaxy you can open.",
+    "bioPlaceholder": "About text — fill in content/person.json",
+    "interestsLabel": "Interests",
+    "interestsPlaceholderLabel": "Interests — placeholders",
+    "interestPlaceholder": "Interest {n} — placeholder",
+    "placeholderBadge": "Placeholder",
+    "explore": "Explore galaxy",
+    "close": "Close",
+    "dialogTitle": "Galaxy",
+    "hint": "Drag to look around. Scroll to zoom. This scene is decorative.",
+    "reducedHint": "Still starfield. Motion is reduced, so the 3D view stays off.",
+    "loading": "Loading the galaxy…",
+    "sceneLabel": "Particle galaxy"
+  },
   "skills": {
     "kicker": "Arc",
     "title": "Skills",

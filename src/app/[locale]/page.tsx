@@ -1,6 +1,7 @@
 import { hasLocale } from 'next-intl';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
+import { AboutSection } from '@/components/about/AboutSection';
 import { HeroSection } from '@/components/hero/HeroSection';
 import { ProjectsSection } from '@/components/projects/ProjectsSection';
 import { SkillsSection } from '@/components/skills/SkillsSection';
@@ -48,6 +49,10 @@ export default async function HomePage({ params }: HomePageProps) {
       {HOME_SECTIONS.map((section, index) => {
         if (section.id === 'hero') {
           return <HeroSection key={section.id} person={person} />;
+        }
+
+        if (section.id === 'about') {
+          return <AboutSection key={section.id} person={person} />;
         }
 
         if (section.id === 'skills') {

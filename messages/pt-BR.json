@@ -36,6 +36,23 @@
     "nameMissing": "Nome ainda não adicionado.",
     "avatarEmpty": "Foto ainda não adicionada"
   },
+  "about": {
+    "kicker": "Sobre",
+    "title": "Sobre",
+    "blurb": "Um texto curto vindo do conteúdo do site, e uma galáxia para abrir.",
+    "bioPlaceholder": "Texto sobre mim — preencher em content/person.json",
+    "interestsLabel": "Interesses",
+    "interestsPlaceholderLabel": "Interesses — placeholders",
+    "interestPlaceholder": "Interesse {n} — placeholder",
+    "placeholderBadge": "Placeholder",
+    "explore": "Explorar galáxia",
+    "close": "Fechar",
+    "dialogTitle": "Galáxia",
+    "hint": "Arraste para olhar ao redor. Use a roda para aproximar. Esta cena é decorativa.",
+    "reducedHint": "Campo de estrelas parado. O movimento está reduzido, então a vista 3D fica desligada.",
+    "loading": "Carregando a galáxia…",
+    "sceneLabel": "Galáxia de partículas"
+  },
   "skills": {
     "kicker": "Arco",
     "title": "Habilidades",

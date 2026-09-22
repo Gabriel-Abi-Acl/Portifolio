@@ -1,5 +1,13 @@
 export type LocaleCode = 'pt-BR' | 'en';
 
+/** Optional copy per locale. Empty or missing text is not a biography. */
+export type LocalizedCopy = Partial<Record<LocaleCode, string>>;
+
+export type Interest = {
+  id: string;
+  label: LocalizedCopy;
+};
+
 export type Person = {
   id: string;
   displayName: string;
@@ -19,6 +27,10 @@ export type Person = {
     href: string;
   }>;
   contactEmail?: string;
+  /** Short about note. Leave blank until there is real copy. */
+  bio?: LocalizedCopy;
+  /** Interest labels. An empty list means the about section shows placeholders. */
+  interests?: Interest[];
 };
 
 export type Skill = {
