@@ -7,8 +7,8 @@
  */
 const X0 = 15;
 const X1 = 85;
-const Y_END = 76;
-const Y_PEAK = 42;
+const Y_END = 88;
+const Y_PEAK = 44;
 
 export type ArcPoint = {
   x: number;

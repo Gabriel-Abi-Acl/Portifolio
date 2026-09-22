@@ -166,7 +166,10 @@ function Node({
 
   if (!play) {
     return (
-      <span aria-hidden="true" className="relative z-10 mt-1 inline-flex shrink-0 lg:mt-0">
+      <span
+        aria-hidden="true"
+        className="relative z-10 mt-1 inline-flex shrink-0 lg:mt-0"
+      >
         {glyph}
       </span>
     );
@@ -214,7 +217,7 @@ export function JourneyTimeline({
         aria-label={trackLabel}
         className={
           useArc
-            ? 'relative m-0 list-none p-0 lg:h-[33rem]'
+            ? 'relative m-0 list-none p-0 lg:h-[30rem]'
             : 'relative m-0 list-none p-0'
         }
       >
