@@ -2,7 +2,14 @@
 
 import { useTranslations } from 'next-intl';
 import dynamic from 'next/dynamic';
-import { useEffect, useId, useRef, useState } from 'react';
+import {
+  Component,
+  useEffect,
+  useId,
+  useRef,
+  useState,
+  type ReactNode,
+} from 'react';
 import { createPortal } from 'react-dom';
 import { setScrollLocked } from '@/lib/scroll-lock';
 import { GalaxyStill } from './GalaxyStill';
@@ -19,6 +26,22 @@ const FOCUSABLE = [
 function SceneLoading() {
   const t = useTranslations('about');
   return <GalaxyStill status={t('loading')} />;
+}
+
+class GalaxyBoundary extends Component<
+  { children: ReactNode },
+  { failed: boolean }
+> {
+  state = { failed: false };
+
+  static getDerivedStateFromError(): { failed: boolean } {
+    return { failed: true };
+  }
+
+  render() {
+    if (this.state.failed) return <GalaxyStill />;
+    return this.props.children;
+  }
 }
 
 const GalaxyScene = dynamic(
@@ -180,7 +203,9 @@ export function GalaxyModal() {
                   {reduceMotion ? (
                     <GalaxyStill />
                   ) : (
-                    <GalaxyScene label={t('sceneLabel')} />
+                    <GalaxyBoundary>
+                      <GalaxyScene label={t('sceneLabel')} />
+                    </GalaxyBoundary>
                   )}
                 </div>
 
