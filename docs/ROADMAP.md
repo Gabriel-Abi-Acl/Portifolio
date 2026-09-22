@@ -21,11 +21,12 @@ Não inclui chat, motion, 3D nem cards reais.
 
 ## PR2 — Casca visual
 
-- Fundo estático (camadas, sem animação pesada)
-- Cards de vidro e navegação fixa
-- A página continua sendo um scroll único com as mesmas âncoras
-- Sem Framer Motion / Lenis ainda, a menos que o visual exija um primitive mínimo
-- Sem copiar CSS, tokens ou assets de referências externas
+- Fundo estático (gradiente + campo de pontos em SVG, sem canvas e sem parallax)
+- `GlassCard` e seções em painéis de vidro
+- Navegação fixa com as mesmas âncoras
+- Lenis só para scroll suave; desligado com `prefers-reduced-motion`
+- Tokens em `docs/DESIGN.md`
+- Sem Framer Motion, GSAP ou assets de referências externas
 
 ## PR3 — Hero + chat
 

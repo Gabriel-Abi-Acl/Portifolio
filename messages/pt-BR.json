@@ -1,13 +1,18 @@
 {
   "meta": {
     "title": "Portfólio",
-    "description": "Fundação do site. As seções ainda não têm conteúdo."
+    "description": "Casca visual do portfólio. As seções ainda não têm conteúdo."
   },
   "shell": {
-    "kicker": "PR1 · fundação",
+    "kicker": "Casca visual",
     "title": "Portfólio",
-    "intro": "Esqueleto da aplicação. Visual, chat e seções reais entram nos PRs seguintes. Nenhum fato biográfico foi preenchido.",
+    "intro": "Painéis flutuantes sobre um fundo estático. Chat, habilidades e projetos entram nos próximos PRs. Nenhum fato biográfico foi preenchido.",
+    "brand": "Portfólio",
     "navLabel": "Seções",
+    "localeLabel": "Idioma",
+    "menuOpen": "Abrir menu",
+    "menuClose": "Fechar menu",
+    "skip": "Ir para o conteúdo",
     "coming": "Chega no PR {pr}.",
     "contentStatus": "Stubs carregados: {socials} links, {skills} habilidades, {projects} projetos, {journey} marcos, {chunks} trechos de conhecimento."
   },

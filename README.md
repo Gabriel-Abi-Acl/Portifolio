@@ -1,6 +1,11 @@
 # Portfólio
 
-Fundação do site pessoal de Gabriel Abi Acl. Este repositório é construído em PRs modulares. O PR1 só entrega o esqueleto: Next.js, idiomas, schemas vazios e uma página com âncoras. Visual, chat, animações e conteúdo real ficam para os PRs seguintes.
+Site pessoal de Gabriel Abi Acl, construído em PRs modulares.
+
+- **PR1** — esqueleto: Next.js, idiomas, schemas vazios e uma página com âncoras.
+- **PR2** — casca visual: fundo estático, cards de vidro e navegação fixa. Tokens em [`docs/DESIGN.md`](docs/DESIGN.md).
+
+Chat, animações de conteúdo e textos reais ficam para os PRs seguintes.
 
 Nenhum fato biográfico, empregador, habilidade ou projeto foi inventado. Os arquivos em `content/` estão vazios de propósito.
 
@@ -40,7 +45,7 @@ A chave `GEMINI_API_KEY` pode ficar vazia neste PR. O chat ainda não existe.
 - `next-intl` com `pt-BR` (padrão) e `en`
 - Alias `@/` → `src/`
 
-Bibliotecas de motion, 3D e o cliente do Gemini **não** entram agora.
+A casca visual (PR2) acrescenta Lenis para scroll suave. Ele não inicia quando `prefers-reduced-motion: reduce` está ativo. Framer Motion, GSAP, React Three Fiber e o cliente do Gemini ainda não entram.
 
 ## Idiomas
 
@@ -84,6 +89,6 @@ O detalhe está em [`docs/ROADMAP.md`](docs/ROADMAP.md).
 
 A âncora `#contact` aponta para o PR8 porque não há um PR só de contato.
 
-## Fora deste PR
+## Fora da casca visual
 
-Chat (`/api/chat`), Framer Motion, Lenis, GSAP, React Three Fiber, arco de skills, galáxia, cards de projeto e qualquer copy de portfólio.
+Chat (`/api/chat`), Framer Motion, GSAP, React Three Fiber, arco de skills, galáxia, cards de projeto com conteúdo e qualquer copy de portfólio.
