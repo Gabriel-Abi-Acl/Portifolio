@@ -28,6 +28,10 @@ export function GlassCard({
         tone === 'strong' && 'glass-card-strong',
         className,
       )}
+      style={{
+        backdropFilter: 'blur(var(--blur-glass))',
+        WebkitBackdropFilter: 'blur(var(--blur-glass))',
+      }}
     >
       {children}
     </div>

@@ -49,6 +49,13 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} className="bg-background">
       <body className="min-h-screen bg-background text-foreground antialiased">
+        <style>{`@media (prefers-reduced-motion: reduce) {
+  .glass-card {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: var(--card-solid) !important;
+  }
+}`}</style>
         <NextIntlClientProvider>
           <SmoothScroll />
           <StarfieldBackground />

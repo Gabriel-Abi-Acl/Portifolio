@@ -29,11 +29,7 @@ export function SectionPlaceholder({
   const label = String(index).padStart(2, '0');
 
   return (
-    <section
-      id={id}
-      aria-labelledby={`${id}-title`}
-      className={cx('section-anchor', className)}
-    >
+    <section id={id} aria-labelledby={`${id}-title`} className={className}>
       <div className={cx('relative h-full', isHero && 'isolate')}>
         {isHero ? (
           <div

@@ -123,7 +123,7 @@ export function SiteHeader({ brand }: SiteHeaderProps) {
       </a>
       <div className="mx-auto w-full max-w-5xl">
         <div className="relative flex items-center justify-between gap-3">
-          <GlassCard shape="pill" className="min-w-0 px-4 py-2.5">
+          <GlassCard shape="pill" className="z-10 min-w-0 shrink-0 px-4 py-2.5">
             <a
               href="#hero"
               className="flex min-w-0 items-center gap-2 text-sm font-semibold tracking-tight"
@@ -136,35 +136,36 @@ export function SiteHeader({ brand }: SiteHeaderProps) {
             </a>
           </GlassCard>
 
-          <GlassCard
-            shape="pill"
-            className="absolute left-1/2 hidden -translate-x-1/2 px-2 py-1.5 lg:block"
-          >
-            <nav aria-label={t('navLabel')}>
-              <ul className="flex items-center gap-0.5">
-                {HOME_SECTIONS.map((section) => (
-                  <li key={section.id}>
-                    <a
-                      href={`#${section.id}`}
-                      aria-current={active === section.id ? 'true' : undefined}
-                      className={cx(
-                        'block rounded-full px-3 py-1.5 text-sm whitespace-nowrap',
-                        active === section.id
-                          ? 'bg-white/15 text-foreground'
-                          : 'text-muted hover:bg-white/10 hover:text-foreground',
-                      )}
-                    >
-                      {sections(section.id)}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-          </GlassCard>
+          <div className="pointer-events-none absolute inset-0 hidden items-center justify-center lg:flex">
+            <GlassCard shape="pill" className="pointer-events-auto px-2 py-1.5">
+              <nav aria-label={t('navLabel')}>
+                <ul className="flex items-center gap-0.5">
+                  {HOME_SECTIONS.map((section) => (
+                    <li key={section.id}>
+                      <a
+                        href={`#${section.id}`}
+                        aria-current={
+                          active === section.id ? 'true' : undefined
+                        }
+                        className={cx(
+                          'block rounded-full px-3 py-1.5 text-sm whitespace-nowrap',
+                          active === section.id
+                            ? 'bg-white/15 text-foreground'
+                            : 'text-muted hover:bg-white/10 hover:text-foreground',
+                        )}
+                      >
+                        {sections(section.id)}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            </GlassCard>
+          </div>
 
           <GlassCard
             shape="pill"
-            className="flex items-center gap-1 px-1.5 py-1.5"
+            className="z-10 flex shrink-0 items-center gap-1 px-1.5 py-1.5"
           >
             <nav aria-label={t('localeLabel')} className="flex items-center">
               <LocaleLink code="pt-BR" current={locale === 'pt-BR'}>
