@@ -12,9 +12,8 @@
     'journey',
     'contact',
   ];
-  // Volta completa em 18s: no app Next são 36s, mas neste esboço
-  // o movimento precisa aparecer num olhar curto.
-  const LOOP_MS = 18000;
+  // Volta do arco em CSS (offset-path). 18s para o movimento aparecer num olhar curto.
+  const SKILL_LOOP_SECONDS = 18;
   const ARC_LIMIT = 4;
 
   const GLYPHS = {
@@ -62,12 +61,7 @@
   const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
 
   let locale = 'pt-BR';
-  let skillFrame = 0;
   let skillStage = null;
-  let skillPath = null;
-  let skillLength = 0;
-  let skillDepth = [];
-  let skillStartedAt = 0;
   let galaxy = null;
   let modalOpen = false;
   let locked = [];
@@ -394,65 +388,23 @@
     return closedSmoothPath(fitPoints(raw, width, height, padX, padY));
   }
 
-  function stopSkillLoop() {
-    if (skillFrame) window.cancelAnimationFrame(skillFrame);
-    skillFrame = 0;
-  }
-
-  function depthAt(progress) {
-    if (skillDepth.length === 0) return 0.5;
-    const steps = skillDepth.length - 1;
-    const cursor = progress * steps;
-    const left = Math.floor(cursor) % steps;
-    const right = (left + 1) % steps;
-    const mix = cursor - Math.floor(cursor);
-    return skillDepth[left] * (1 - mix) + skillDepth[right] * mix;
-  }
-
-  function skillFrameTick(now) {
-    if (!skillPath || prefersReduced()) return;
-    if (!skillStartedAt) skillStartedAt = now;
-    const base = ((now - skillStartedAt) % LOOP_MS) / LOOP_MS;
-    const riders = skillStage
-      ? skillStage.querySelectorAll('.skill-rider')
-      : [];
-    const count = riders.length || 1;
-    riders.forEach((rider, index) => {
-      const progress = (base + index / count) % 1;
-      const point = skillPath.getPointAtLength(progress * skillLength);
-      const near = depthAt(progress);
-      const scale = 0.72 + 0.28 * near;
-      rider.style.transform = `translate3d(${point.x}px, ${point.y}px, 0) translate(-50%, -50%) scale(${scale})`;
-      rider.style.opacity = String(0.48 + 0.52 * near);
-      rider.style.zIndex = String(Math.round(1 + near * 12));
-    });
-    skillFrame = window.requestAnimationFrame(skillFrameTick);
-  }
-
   function measureSkill() {
-    stopSkillLoop();
     if (!skillStage || prefersReduced()) return;
     const width = skillStage.clientWidth;
     if (width < 16) return;
     const pads = skillPads(width);
     skillStage.style.height = `${pads.height}px`;
     const d = skillsArcPath(width, pads.height, pads.x, pads.y);
-    const paths = skillStage.querySelectorAll('path');
-    paths.forEach((path) => path.setAttribute('d', d));
-    skillPath = paths[0] || null;
-    if (!skillPath) return;
-    skillLength = skillPath.getTotalLength();
-    const samples = 24;
-    const ys = [];
-    for (let index = 0; index <= samples; index += 1) {
-      ys.push(skillPath.getPointAtLength((index / samples) * skillLength).y);
-    }
-    const min = Math.min(...ys);
-    const max = Math.max(...ys);
-    const span = Math.max(1, max - min);
-    skillDepth = ys.map((y) => (y - min) / span);
-    skillStartedAt = 0;
-    skillFrame = window.requestAnimationFrame(skillFrameTick);
+    skillStage.querySelectorAll('path').forEach((path) => {
+      path.setAttribute('d', d);
+    });
+    const riders = skillStage.querySelectorAll('.skill-rider');
+    const count = riders.length || 1;
+    riders.forEach((rider, index) => {
+      rider.style.offsetPath = `path('${d}')`;
+      rider.style.animationDuration = `${SKILL_LOOP_SECONDS}s`;
+      rider.style.animationDelay = `${-(index / count) * SKILL_LOOP_SECONDS}s`;
+    });
   }
 
   function skillPill(skill) {
@@ -477,9 +429,7 @@
     );
     if (!mount) return;
     clear(mount);
-    stopSkillLoop();
     skillStage = null;
-    skillPath = null;
     if (skills.length === 0) return;
 
     const stage = document.createElement('div');
@@ -1175,7 +1125,6 @@
         document
           .querySelectorAll('.reveal-wait')
           .forEach((node) => node.classList.remove('reveal-wait'));
-        stopSkillLoop();
       } else {
         measureSkill();
       }

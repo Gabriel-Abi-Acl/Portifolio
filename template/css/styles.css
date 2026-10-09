@@ -874,6 +874,9 @@ body:not(.is-ready) .noscript {
   top: 0;
   left: 0;
   margin: 0;
+  offset-rotate: 0deg;
+  offset-anchor: center;
+  animation: skill-travel 18s linear infinite;
 }
 
 .skill-pill {
@@ -1374,6 +1377,16 @@ body:not(.is-ready) .noscript {
   line-height: 1.55;
 }
 
+@keyframes skill-travel {
+  from {
+    offset-distance: 0%;
+  }
+
+  to {
+    offset-distance: 100%;
+  }
+}
+
 @keyframes about-float {
   0%,
   100% {
@@ -1581,6 +1594,10 @@ body:not(.is-ready) .noscript {
 
   .skill-stage {
     display: none;
+  }
+
+  .skill-rider {
+    animation: none;
   }
 
   .skill-fallback {
