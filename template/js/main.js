@@ -12,7 +12,9 @@
     'journey',
     'contact',
   ];
-  const LOOP_MS = 36000;
+  // Volta completa em 18s: no app Next são 36s, mas neste esboço
+  // o movimento precisa aparecer num olhar curto.
+  const LOOP_MS = 18000;
   const ARC_LIMIT = 4;
 
   const GLYPHS = {
