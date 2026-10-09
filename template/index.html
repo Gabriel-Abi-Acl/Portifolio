@@ -1,0 +1,698 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="color-scheme" content="dark" />
+    <title>Portfólio — protótipo</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <noscript>
+      <p class="noscript">
+        Este protótipo precisa de JavaScript para montar o conteúdo a partir de
+        js/data.js.
+      </p>
+    </noscript>
+
+    <a class="skip-link" href="#content" data-i18n="shell.skip"></a>
+
+    <div class="starfield" aria-hidden="true">
+      <div class="starfield-gradient"></div>
+      <svg xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern
+            id="dot-field"
+            width="26"
+            height="26"
+            patternUnits="userSpaceOnUse"
+          >
+            <circle cx="1" cy="1" r="0.85" fill="white" fill-opacity="0.28" />
+          </pattern>
+          <pattern
+            id="star-field"
+            width="340"
+            height="280"
+            patternUnits="userSpaceOnUse"
+          >
+            <circle cx="24" cy="36" r="1.15" fill="white" fill-opacity="0.75" />
+            <circle cx="120" cy="18" r="0.7" fill="white" fill-opacity="0.4" />
+            <circle
+              cx="188"
+              cy="92"
+              r="1.05"
+              fill="white"
+              fill-opacity="0.55"
+            />
+            <circle cx="70" cy="150" r="0.6" fill="white" fill-opacity="0.35" />
+            <circle cx="250" cy="40" r="0.9" fill="white" fill-opacity="0.5" />
+            <circle
+              cx="300"
+              cy="170"
+              r="1.2"
+              fill="white"
+              fill-opacity="0.45"
+            />
+            <circle cx="40" cy="230" r="0.8" fill="white" fill-opacity="0.4" />
+            <circle
+              cx="210"
+              cy="220"
+              r="0.55"
+              fill="white"
+              fill-opacity="0.3"
+            />
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#dot-field)" />
+        <rect width="100%" height="100%" fill="url(#star-field)" />
+      </svg>
+      <div class="starfield-vignette"></div>
+    </div>
+
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="header-bar">
+          <a class="brand glass glass-pill" href="#hero">
+            <span class="brand-dot" aria-hidden="true"></span>
+            <span class="brand-label" id="brand-label"></span>
+          </a>
+
+          <nav
+            class="desktop-nav glass glass-pill"
+            data-i18n-aria="shell.navLabel"
+          >
+            <ul class="nav-list">
+              <li>
+                <a
+                  class="nav-link"
+                  href="#hero"
+                  data-section="hero"
+                  data-i18n="sections.hero"
+                ></a>
+              </li>
+              <li>
+                <a
+                  class="nav-link"
+                  href="#about"
+                  data-section="about"
+                  data-i18n="sections.about"
+                ></a>
+              </li>
+              <li>
+                <a
+                  class="nav-link"
+                  href="#skills"
+                  data-section="skills"
+                  data-i18n="sections.skills"
+                ></a>
+              </li>
+              <li>
+                <a
+                  class="nav-link"
+                  href="#projects"
+                  data-section="projects"
+                  data-i18n="sections.projects"
+                ></a>
+              </li>
+              <li>
+                <a
+                  class="nav-link"
+                  href="#journey"
+                  data-section="journey"
+                  data-i18n="sections.journey"
+                ></a>
+              </li>
+              <li>
+                <a
+                  class="nav-link"
+                  href="#contact"
+                  data-section="contact"
+                  data-i18n="sections.contact"
+                ></a>
+              </li>
+            </ul>
+          </nav>
+
+          <div class="header-tools glass glass-pill">
+            <div
+              class="locale-switch"
+              role="group"
+              data-i18n-aria="shell.localeLabel"
+            >
+              <button
+                type="button"
+                class="locale-button"
+                data-locale="pt-BR"
+                aria-pressed="true"
+              >
+                PT
+              </button>
+              <button
+                type="button"
+                class="locale-button"
+                data-locale="en"
+                aria-pressed="false"
+              >
+                EN
+              </button>
+            </div>
+            <button
+              type="button"
+              class="menu-button"
+              id="menu-button"
+              aria-expanded="false"
+              aria-controls="mobile-nav"
+            >
+              <span
+                class="sr-only"
+                id="menu-label"
+                data-i18n="shell.menuOpen"
+              ></span>
+              <svg
+                id="menu-icon-open"
+                width="18"
+                height="18"
+                viewBox="0 0 18 18"
+                aria-hidden="true"
+              >
+                <path
+                  d="M3 5h12M3 9h12M3 13h12"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                />
+              </svg>
+              <svg
+                id="menu-icon-close"
+                width="18"
+                height="18"
+                viewBox="0 0 18 18"
+                aria-hidden="true"
+                hidden
+              >
+                <path
+                  d="M4.5 4.5l9 9M13.5 4.5l-9 9"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <nav
+          class="mobile-nav glass"
+          id="mobile-nav"
+          data-i18n-aria="shell.navLabel"
+          hidden
+        >
+          <ul class="mobile-list">
+            <li>
+              <a
+                class="nav-link"
+                href="#hero"
+                data-section="hero"
+                data-i18n="sections.hero"
+              ></a>
+            </li>
+            <li>
+              <a
+                class="nav-link"
+                href="#about"
+                data-section="about"
+                data-i18n="sections.about"
+              ></a>
+            </li>
+            <li>
+              <a
+                class="nav-link"
+                href="#skills"
+                data-section="skills"
+                data-i18n="sections.skills"
+              ></a>
+            </li>
+            <li>
+              <a
+                class="nav-link"
+                href="#projects"
+                data-section="projects"
+                data-i18n="sections.projects"
+              ></a>
+            </li>
+            <li>
+              <a
+                class="nav-link"
+                href="#journey"
+                data-section="journey"
+                data-i18n="sections.journey"
+              ></a>
+            </li>
+            <li>
+              <a
+                class="nav-link"
+                href="#contact"
+                data-section="contact"
+                data-i18n="sections.contact"
+              ></a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="content" class="page" tabindex="-1">
+      <div class="stack">
+        <section id="hero" class="reveal" aria-labelledby="hero-title">
+          <div class="hero-glow">
+            <div class="glass section-card">
+              <div class="section-kicker">
+                <span class="section-index" aria-hidden="true">01</span>
+                <span class="section-rule" aria-hidden="true"></span>
+                <p class="kicker" data-i18n="hero.kicker"></p>
+              </div>
+              <div class="hero-grid">
+                <div>
+                  <div class="avatar is-empty" id="avatar-slot"></div>
+                  <p class="hero-name" id="hero-name"></p>
+                  <h1
+                    class="headline"
+                    id="hero-title"
+                    data-i18n="hero.headline"
+                  ></h1>
+                  <p class="lede" data-i18n="hero.subhead"></p>
+                </div>
+                <div class="chat glass glass-strong">
+                  <div class="chat-heading">
+                    <h2 data-i18n="chat.title"></h2>
+                    <span class="soon-pill" data-i18n="chat.soonShort"></span>
+                  </div>
+                  <p
+                    class="chat-status"
+                    id="chat-status"
+                    role="status"
+                    data-i18n="chat.soon"
+                  ></p>
+                  <div
+                    class="chat-log"
+                    id="chat-log"
+                    role="log"
+                    data-i18n-aria="chat.logLabel"
+                  ></div>
+                  <div
+                    class="chip-row"
+                    id="chat-chips"
+                    role="group"
+                    data-i18n-aria="chat.chipsLabel"
+                  ></div>
+                  <form class="chat-form" id="chat-form">
+                    <label
+                      class="sr-only"
+                      for="chat-input"
+                      data-i18n="chat.label"
+                    ></label>
+                    <input
+                      id="chat-input"
+                      type="text"
+                      disabled
+                      autocomplete="off"
+                      maxlength="500"
+                      aria-describedby="chat-status"
+                    />
+                    <button
+                      type="submit"
+                      id="chat-send"
+                      disabled
+                      data-i18n="chat.send"
+                    ></button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="about" class="reveal" aria-labelledby="about-title">
+          <div class="glass section-card">
+            <div class="section-kicker">
+              <span class="section-index" aria-hidden="true">02</span>
+              <span class="section-rule" aria-hidden="true"></span>
+              <p class="kicker" data-i18n="about.kicker"></p>
+            </div>
+            <h2
+              class="section-title"
+              id="about-title"
+              data-i18n="about.title"
+            ></h2>
+            <p class="role-line" id="about-role" hidden></p>
+            <p class="place-line" id="about-place" hidden></p>
+            <p class="lede" data-i18n="about.blurb"></p>
+            <div class="about-grid">
+              <div>
+                <p class="bio" id="about-bio"></p>
+                <button
+                  type="button"
+                  class="button-accent"
+                  id="galaxy-open"
+                  aria-haspopup="dialog"
+                  aria-controls="galaxy-panel"
+                  aria-expanded="false"
+                >
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M8 1.2l1.1 3.4L12.6 5 9.1 6.6 8 10 6.9 6.6 3.4 5l3.5-.4L8 1.2zM12.2 9.2l.6 1.7 1.7.5-1.7.6-.6 1.7-.5-1.7-1.7-.6 1.7-.5.5-1.7z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                  <span data-i18n="about.explore"></span>
+                </button>
+              </div>
+              <div class="about-visual">
+                <div class="orbit orbit-lg" aria-hidden="true"></div>
+                <div class="orbit orbit-sm" aria-hidden="true"></div>
+                <p class="kicker" id="interests-label"></p>
+                <ul class="interest-list" id="interest-list"></ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="skills" class="reveal" aria-labelledby="skills-title">
+          <div class="glass section-card">
+            <div class="section-kicker">
+              <span class="section-index" aria-hidden="true">03</span>
+              <span class="section-rule" aria-hidden="true"></span>
+              <p class="kicker" data-i18n="skills.kicker"></p>
+            </div>
+            <h2
+              class="section-title"
+              id="skills-title"
+              data-i18n="skills.title"
+            ></h2>
+            <p class="lede" data-i18n="skills.blurb"></p>
+            <p
+              class="note-accent"
+              id="skills-note"
+              data-i18n="skills.placeholderNote"
+              hidden
+            ></p>
+            <p
+              class="lede"
+              id="skills-empty"
+              data-i18n="skills.empty"
+              hidden
+            ></p>
+            <div id="skills-mount"></div>
+          </div>
+        </section>
+
+        <section id="projects" class="reveal" aria-labelledby="projects-title">
+          <div class="glass section-card">
+            <div class="section-kicker">
+              <span class="section-index" aria-hidden="true">04</span>
+              <span class="section-rule" aria-hidden="true"></span>
+              <p class="kicker" data-i18n="projects.kicker"></p>
+            </div>
+            <h2
+              class="section-title"
+              id="projects-title"
+              data-i18n="projects.title"
+            ></h2>
+            <p class="lede" data-i18n="projects.intro"></p>
+            <p
+              class="note-accent"
+              id="projects-note"
+              data-i18n="projects.placeholderNote"
+              hidden
+            ></p>
+            <p
+              class="lede"
+              id="projects-empty"
+              data-i18n="projects.empty"
+              hidden
+            ></p>
+            <ul class="project-list" id="project-list"></ul>
+          </div>
+        </section>
+
+        <section id="journey" class="reveal" aria-labelledby="journey-title">
+          <div class="glass section-card">
+            <div class="section-kicker">
+              <span class="section-index" aria-hidden="true">05</span>
+              <span class="section-rule" aria-hidden="true"></span>
+              <p class="kicker" data-i18n="journey.kicker"></p>
+            </div>
+            <h2
+              class="section-title"
+              id="journey-title"
+              data-i18n="journey.title"
+            ></h2>
+            <p class="lede" data-i18n="journey.intro"></p>
+            <p
+              class="note-accent"
+              id="journey-note"
+              data-i18n="journey.placeholderNote"
+              hidden
+            ></p>
+            <p
+              class="lede"
+              id="journey-empty"
+              data-i18n="journey.empty"
+              hidden
+            ></p>
+            <div class="journey-stage" id="journey-stage">
+              <svg
+                class="journey-svg"
+                viewBox="0 0 100 100"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M 15 88 Q 50 0 85 88"
+                  fill="none"
+                  stroke="var(--accent)"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  vector-effect="non-scaling-stroke"
+                />
+              </svg>
+              <div class="journey-glow" aria-hidden="true"></div>
+              <ol
+                class="journey-list"
+                id="journey-list"
+                data-i18n-aria="journey.trackLabel"
+              ></ol>
+            </div>
+            <div class="journey-close">
+              <span class="section-rule" aria-hidden="true"></span>
+              <p data-i18n="journey.footer"></p>
+              <p class="motto">
+                <span data-i18n="journey.motto"></span
+                ><span class="motto-dot" aria-hidden="true"></span>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="contact" class="reveal" aria-labelledby="contact-title">
+          <div class="glass section-card">
+            <div class="section-kicker">
+              <span class="section-index" aria-hidden="true">06</span>
+              <span class="section-rule" aria-hidden="true"></span>
+              <p class="kicker" data-i18n="contact.kicker"></p>
+            </div>
+            <h2
+              class="section-title"
+              id="contact-title"
+              data-i18n="contact.title"
+            ></h2>
+            <p class="lede" data-i18n="contact.intro"></p>
+            <div class="contact-grid">
+              <div class="contact-block">
+                <h3 data-i18n="contact.emailLabel"></h3>
+                <div id="contact-email-slot"></div>
+              </div>
+              <div class="contact-block">
+                <h3 data-i18n="contact.socialsLabel"></h3>
+                <div id="contact-links-slot"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <p class="prototype-note reveal" data-i18n="shell.prototypeNote"></p>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <p>
+          <span class="footer-year" id="footer-year"></span>
+          <span class="footer-dot" aria-hidden="true"> · </span>
+          <span class="footer-name" id="footer-name"></span>
+        </p>
+        <p
+          class="footer-locale"
+          id="footer-locale"
+          data-i18n="footer.localeNote"
+        ></p>
+      </div>
+    </footer>
+
+    <div class="modal" id="galaxy-root" hidden>
+      <div class="modal-backdrop" data-close-modal></div>
+      <div
+        class="modal-panel glass glass-strong"
+        id="galaxy-panel"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="galaxy-title"
+        aria-describedby="galaxy-hint"
+        tabindex="-1"
+      >
+        <div class="modal-bar">
+          <h2 id="galaxy-title" data-i18n="about.dialogTitle"></h2>
+          <button
+            type="button"
+            class="button-ghost"
+            data-close-modal
+            data-i18n="about.close"
+          ></button>
+        </div>
+        <div class="modal-stage">
+          <canvas id="galaxy-canvas" data-i18n-aria="about.sceneLabel"></canvas>
+          <div class="galaxy-still">
+            <svg
+              viewBox="0 0 640 400"
+              preserveAspectRatio="xMidYMid slice"
+              aria-hidden="true"
+            >
+              <defs>
+                <radialGradient id="galaxy-core" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#f7f4ff" stop-opacity="0.95" />
+                  <stop offset="45%" stop-color="#3ee0c5" stop-opacity="0.55" />
+                  <stop offset="100%" stop-color="#3ee0c5" stop-opacity="0" />
+                </radialGradient>
+                <linearGradient
+                  id="galaxy-disk"
+                  x1="0%"
+                  y1="0%"
+                  x2="100%"
+                  y2="0%"
+                >
+                  <stop offset="0%" stop-color="#7c6cff" stop-opacity="0" />
+                  <stop offset="35%" stop-color="#3ee0c5" stop-opacity="0.35" />
+                  <stop offset="50%" stop-color="#f5f3fb" stop-opacity="0.55" />
+                  <stop offset="70%" stop-color="#b9a4ff" stop-opacity="0.32" />
+                  <stop offset="100%" stop-color="#7c6cff" stop-opacity="0" />
+                </linearGradient>
+              </defs>
+              <g transform="translate(320 208) rotate(-18)">
+                <ellipse
+                  cx="0"
+                  cy="0"
+                  rx="250"
+                  ry="72"
+                  fill="url(#galaxy-disk)"
+                />
+                <ellipse
+                  cx="0"
+                  cy="0"
+                  rx="180"
+                  ry="36"
+                  fill="#3ee0c5"
+                  fill-opacity="0.12"
+                />
+              </g>
+              <circle cx="320" cy="204" r="54" fill="url(#galaxy-core)" />
+              <circle
+                cx="48"
+                cy="36"
+                r="1.1"
+                fill="#f5f3fb"
+                fill-opacity="0.7"
+              />
+              <circle
+                cx="140"
+                cy="28"
+                r="1.3"
+                fill="#f5f3fb"
+                fill-opacity="0.8"
+              />
+              <circle
+                cx="246"
+                cy="44"
+                r="0.9"
+                fill="#f5f3fb"
+                fill-opacity="0.55"
+              />
+              <circle
+                cx="430"
+                cy="34"
+                r="1.4"
+                fill="#f5f3fb"
+                fill-opacity="0.85"
+              />
+              <circle
+                cx="560"
+                cy="40"
+                r="1"
+                fill="#f5f3fb"
+                fill-opacity="0.6"
+              />
+              <circle
+                cx="90"
+                cy="210"
+                r="1.2"
+                fill="#f5f3fb"
+                fill-opacity="0.65"
+              />
+              <circle
+                cx="200"
+                cy="360"
+                r="0.6"
+                fill="#f5f3fb"
+                fill-opacity="0.35"
+              />
+              <circle
+                cx="470"
+                cy="330"
+                r="1.2"
+                fill="#f5f3fb"
+                fill-opacity="0.6"
+              />
+              <circle
+                cx="600"
+                cy="352"
+                r="1.1"
+                fill="#f5f3fb"
+                fill-opacity="0.7"
+              />
+              <circle
+                cx="360"
+                cy="236"
+                r="1.6"
+                fill="#f5f3fb"
+                fill-opacity="0.95"
+              />
+            </svg>
+          </div>
+        </div>
+        <p class="modal-hint" id="galaxy-hint"></p>
+      </div>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/galaxy.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
